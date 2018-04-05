@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+  </head>
+  
+  <body>
+    <p id = "money"> </p>
+    
+    <button onclick="ButtonPlay()">Play</button>
+    <button onclick="ButtonRed()">Red</button>
+    <button onclick="ButtonGreen()">Green</button>
+    <button onclick="ButtonBlack()">Black</button>
+
+
+    <input type="number" step="1" id="Money" />
+    <script src="index.js"></script>
+  </body>
+</html>
