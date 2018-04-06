@@ -10,13 +10,22 @@
   <body>
     <p id = "money"> </p>
     
-    <button onclick="ButtonPlay()">Play</button>
-    <button onclick="ButtonRed()">Red</button>
-    <button onclick="ButtonGreen()">Green</button>
-    <button onclick="ButtonBlack()">Black</button>
+    <button class="Play" onclick="ButtonPlay()">Play</button>
+    <button class="Red" onclick="ButtonRed()">Red 2x</button>
+    <button class="Green" onclick="ButtonGreen()">Green 14x</button>
+    <button class="Black" onclick="ButtonBlack()">Black 2x</button>
+    <input type="number" step="1" id="Money" value="0" class ="indent" />
 
+    <button onclick="ButtonClear()">Clear</button>
+    <button onclick="ButtonAdd(1)">+1</button>
+    <button onclick="ButtonAdd(10)">+10</button>
+    <button onclick="ButtonAdd(50)">+50</button>
+    <button onclick="ButtonAdd(100)">+100</button>
+    <button onclick="ButtonMax()">Max</button>
 
-    <input type="number" step="1" id="Money" />
+    <button onclick="ButtonMulti(.5)">1/2x</button>
+    <button onclick="ButtonMulti(2)">2x</button>
+    <button onclick="ButtonMulti(5)">5x</button>
     <script src="index.js"></script>
   </body>
 </html>
