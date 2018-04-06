@@ -1,65 +1,73 @@
 var MONEY = 500; //STARTING MONEY
-document.getElementById("money").innerHTML= "Balance: " + MONEY;
-var amtRed = 0, amtGreen = 0, amtBlack = 0;
+document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+var amtRed = 0,
+	amtGreen = 0,
+	amtBlack = 0;
 
 //START GAME
 function PlayGame() {
 	var rand = Math.floor(Math.random() * 15);
-		if (rand !== 0 && rand % 2 === 0) {
-			return 'RED';
-		}
-		if (rand !== 0 && rand % 2 === 1) {
-			return 'BLACK';
-		} else if (rand === 0) {
-			return 'GREEN';
-		}
-	
+	if (rand !== 0 && rand % 2 === 0) {
+		return 'RED';
+	}
+	if (rand !== 0 && rand % 2 === 1) {
+		return 'BLACK';
+	} else if (rand === 0) {
+		return 'GREEN';
+	}
 }
 
 //TEST GAMES
-function ButtonPlay()
-{
-    var outcome = PlayGame();
-		Bet('RED',amtRed,outcome);
-		Bet('GREEN',amtGreen,outcome);
-		Bet('BLACK',amtBlack,outcome);
-		amtRed = 0,amtGreen = 0,amtBlack = 0;
-		document.getElementById("money").innerHTML= "Balance: " + MONEY + " " + outcome;
+function ButtonPlay() {
+	var outcome = PlayGame();
+	Bet('RED', amtRed, outcome);
+	Bet('GREEN', amtGreen, outcome);
+	Bet('BLACK', amtBlack, outcome);
+	(amtRed = 0), (amtGreen = 0), (amtBlack = 0);
+	document.getElementById('money').innerHTML =
+		'Balance: ' + MONEY + ' ' + outcome;
 }
 
 //Red button bet
-function ButtonRed()
-{
-  var amount = parseInt(document.getElementById("Money").value);
-  amtRed += amount;
-  MONEY -= amount;
-  console.log("Bet red ",amount);
-	document.getElementById("money").innerHTML= "Balance: " + MONEY;
+function ButtonRed() {
+	var amount = parseInt(document.getElementById('Money').value);
+	document.getElementById('Money');
+	if (amount > MONEY) {
+		amount = 0;
+	} else {
+		amtRed += amount;
+		MONEY -= amount;
+		console.log('Bet red ', amount);
+		document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+	}
 }
 
 //Green button bet
-function ButtonGreen()
-{
-  var amount = parseInt(document.getElementById("Money").value);
-  amtGreen += amount;
-  MONEY -= amount;
-  console.log("Bet green ",amount)
-	document.getElementById("money").innerHTML= "Balance: " + MONEY;
+function ButtonGreen() {
+	var amount = parseInt(document.getElementById('Money').value);
+	if (amount > MONEY) {
+		amount = 0;
+	}
+	amtGreen += amount;
+	MONEY -= amount;
+	console.log('Bet green ', amount);
+	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
 }
 
 //Black button bet
-function ButtonBlack()
-{  
-  var amount = parseInt(document.getElementById("Money").value);
-  amtBlack += amount;
-  MONEY -= amount;
-  console.log("Bet black ",amount);
-	document.getElementById("money").innerHTML= "Balance: " + MONEY;
-
+function ButtonBlack() {
+	var amount = parseInt(document.getElementById('Money').value);
+	if (amount > MONEY) {
+		amount = 0;
+	}
+	amtBlack += amount;
+	MONEY -= amount;
+	console.log('Bet black ', amount);
+	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
 }
 
 //BETTING
-function Bet(bet,amount, game) {
+function Bet(bet, amount, game) {
 	if (bet === game) {
 		if (game === 'RED' || game === 'BLACK') {
 			RoBWin(amount);
@@ -77,4 +85,26 @@ function RoBWin(amount) {
 //GREEN WIN
 function GWin(amount) {
 	MONEY += amount * 14;
+}
+
+function ButtonAdd(num) {
+	var value = parseInt(document.getElementById('Money').value);
+	value += num;
+	document.getElementById('Money').value = value;
+}
+function ButtonMulti(num) {
+	var value = parseInt(document.getElementById('Money').value);
+	value *= num;
+	document.getElementById('Money').value = value;
+}
+
+function ButtonClear() {
+	var value = parseInt(document.getElementById('Money').value);
+	document.getElementById('Money').value = 0;
+}
+
+function ButtonMax() {
+	var value = parseInt(document.getElementById('Money').value);
+	value = MONEY;
+	document.getElementById('Money').value = value;
 }
