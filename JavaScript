@@ -1,8 +1,16 @@
-var MONEY = 500; //STARTING MONEY
+let Timer = require('easytimer.js');
+MONEY = 500; //STARTING MONEY
+
+
 document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
 var amtRed = 0,
 	amtGreen = 0,
-	amtBlack = 0;
+	amtBlack = 0,
+	total = 1,
+	red = 0,
+	green = 0,
+	black = 0;
+	timer();
 
 //START GAME
 function PlayGame() {
@@ -20,12 +28,14 @@ function PlayGame() {
 //TEST GAMES
 function ButtonPlay() {
 	var outcome = PlayGame();
+	total += 1;
+	Stats(outcome);
 	Bet('RED', amtRed, outcome);
 	Bet('GREEN', amtGreen, outcome);
 	Bet('BLACK', amtBlack, outcome);
 	(amtRed = 0), (amtGreen = 0), (amtBlack = 0);
 	document.getElementById('money').innerHTML =
-		'Balance: ' + MONEY + ' ' + outcome;
+		'Balance: ' + MONEY + ' ' + outcome + ' ' + red + ' ' + green + ' ' + black;
 }
 
 //Red button bet
@@ -34,12 +44,14 @@ function ButtonRed() {
 	document.getElementById('Money');
 	if (amount > MONEY) {
 		amount = 0;
-	} else {
+	}
+	if(amount < 0) {
+	  amount = 0;
+	}
 		amtRed += amount;
 		MONEY -= amount;
 		console.log('Bet red ', amount);
 		document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
-	}
 }
 
 //Green button bet
@@ -47,6 +59,9 @@ function ButtonGreen() {
 	var amount = parseInt(document.getElementById('Money').value);
 	if (amount > MONEY) {
 		amount = 0;
+	}
+	if(amount < 0) {
+	  amount = 0;
 	}
 	amtGreen += amount;
 	MONEY -= amount;
@@ -57,8 +72,11 @@ function ButtonGreen() {
 //Black button bet
 function ButtonBlack() {
 	var amount = parseInt(document.getElementById('Money').value);
-	if (amount > MONEY) {
+	if (amount > MONEY || amount < 0) {
 		amount = 0;
+	}
+	if(amount < 0) {
+	  amount = 0;
 	}
 	amtBlack += amount;
 	MONEY -= amount;
@@ -74,6 +92,16 @@ function Bet(bet, amount, game) {
 		} else if (game === 'GREEN') {
 			GWin(amount);
 		}
+	}
+}
+
+function Stats(game) {
+	if (game === 'RED') {
+		red += 1;
+	} else if (game === 'BLACK') {
+		black += 1;
+	} else {
+		green += 1;
 	}
 }
 
@@ -108,3 +136,28 @@ function ButtonMax() {
 	value = MONEY;
 	document.getElementById('Money').value = value;
 }
+
+function getMoney()
+{
+  return MONEY;
+}
+
+function setMoney(value)
+{
+  MONEY = value;
+}
+
+function timer()
+{
+    var timeleft = 15;
+    var downloadTimer = setInterval(function(){
+    timeleft -= 1;
+    document.getElementById("countdowntimer").textContent = timeleft;
+    if(timeleft <= 0) {
+        ButtonPlay();
+        clearInterval(downloadTimer);
+        setInterval(timer());
+      }
+    },1000);
+}
+
