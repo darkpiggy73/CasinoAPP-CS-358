@@ -1,6 +1,4 @@
-let Timer = require('easytimer.js');
 MONEY = 500; //STARTING MONEY
-
 
 document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
 var amtRed = 0,
@@ -10,7 +8,7 @@ var amtRed = 0,
 	red = 0,
 	green = 0,
 	black = 0;
-	timer();
+timer();
 
 //START GAME
 function PlayGame() {
@@ -36,6 +34,7 @@ function ButtonPlay() {
 	(amtRed = 0), (amtGreen = 0), (amtBlack = 0);
 	document.getElementById('money').innerHTML =
 		'Balance: ' + MONEY + ' ' + outcome + ' ' + red + ' ' + green + ' ' + black;
+	history(outcome);
 }
 
 //Red button bet
@@ -45,13 +44,13 @@ function ButtonRed() {
 	if (amount > MONEY) {
 		amount = 0;
 	}
-	if(amount < 0) {
-	  amount = 0;
+	if (amount < 0) {
+		amount = 0;
 	}
-		amtRed += amount;
-		MONEY -= amount;
-		console.log('Bet red ', amount);
-		document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+	amtRed += amount;
+	MONEY -= amount;
+	console.log('Bet red ', amount);
+	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
 }
 
 //Green button bet
@@ -60,8 +59,8 @@ function ButtonGreen() {
 	if (amount > MONEY) {
 		amount = 0;
 	}
-	if(amount < 0) {
-	  amount = 0;
+	if (amount < 0) {
+		amount = 0;
 	}
 	amtGreen += amount;
 	MONEY -= amount;
@@ -75,8 +74,8 @@ function ButtonBlack() {
 	if (amount > MONEY || amount < 0) {
 		amount = 0;
 	}
-	if(amount < 0) {
-	  amount = 0;
+	if (amount < 0) {
+		amount = 0;
 	}
 	amtBlack += amount;
 	MONEY -= amount;
@@ -137,27 +136,32 @@ function ButtonMax() {
 	document.getElementById('Money').value = value;
 }
 
-function getMoney()
-{
-  return MONEY;
+function getMoney() {
+	return MONEY;
 }
 
-function setMoney(value)
-{
-  MONEY = value;
+function setMoney(value) {
+	MONEY = value;
 }
 
-function timer()
-{
-    var timeleft = 15;
-    var downloadTimer = setInterval(function(){
-    timeleft -= 1;
-    document.getElementById("countdowntimer").textContent = timeleft;
-    if(timeleft <= 0) {
-        ButtonPlay();
-        clearInterval(downloadTimer);
-        setInterval(timer());
-      }
-    },1000);
+function timer() {
+	var timeleft = 15;
+	var downloadTimer = setInterval(function() {
+		timeleft -= 1;
+		document.getElementById('countdowntimer').textContent = timeleft;
+		if (timeleft <= 0) {
+			ButtonPlay();
+			clearInterval(downloadTimer);
+			setInterval(timer());
+		}
+	}, 1000);
 }
 
+var hist = [];
+function history(color) {
+	hist.push(color);
+	if (hist.length > 8) {
+		hist.splice(0, 1);
+	}
+	document.getElementById('history').innerHTML = hist.join(' ');
+}
