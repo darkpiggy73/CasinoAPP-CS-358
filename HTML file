@@ -9,8 +9,8 @@
   
   <body>
     <p id = "money"> </p>
+    <p> The Game will begin in <span id="countdowntimer">15 </span> Seconds</p>
     
-    <button class="Play" onclick="ButtonPlay()">Play</button>
     <button class="Red" onclick="ButtonRed()">Red 2x</button>
     <button class="Green" onclick="ButtonGreen()">Green 14x</button>
     <button class="Black" onclick="ButtonBlack()">Black 2x</button>
