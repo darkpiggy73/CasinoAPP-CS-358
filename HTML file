@@ -26,6 +26,8 @@
     <button onclick="ButtonMulti(.5)">1/2x</button>
     <button onclick="ButtonMulti(2)">2x</button>
     <button onclick="ButtonMulti(5)">5x</button>
+    
+    <p id = "history"></p>
     <script src="index.js"></script>
   </body>
 </html>
