@@ -119,6 +119,18 @@ function ButtonLow() {
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
 }
 
+//High button bet
+function ButtonHigh() {
+	var amount = parseInt(document.getElementById('Money').value);
+	if (amount > MONEY || amount < 0) {
+		amount = 0;
+	}
+	amtLowHigh[1] += amount;
+	MONEY -= amount;
+	console.log('Bet High ', amount);
+	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+}
+
 
 //BETTING
 function Bet(bet, amount, game) {
