@@ -58,6 +58,16 @@
                       Basket
                       <ul><li>Bet on 0, 1, 2 and 3 with a chip on the corner shared by the zero box and the first line. In American Roulette, it includes the double zero.</li></ul>
                     </li>
+                    <li>
+                      Outside Bets
+                      <ul>
+                        <li>Red or Black – Bet on the colour of the winning number</li>
+                        <li>Odd or Even – Bet on whether the winning number will be odd or even</li>
+                        <li>1 to 18 or 19 to 36 – Bet on whether the winning number will be low (lower than 19) or high</li>
+                        <li>Dozens – Bet on one of the three dozen that are found on the layout of the table</li>
+                        <li>Columns – Bet from which of the three columns will the winning number be</li>
+                      </ul>
+                    </li>
                 </ul>
                         
                 </div>
