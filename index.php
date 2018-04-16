@@ -28,7 +28,6 @@
                     <h4 class="modal-title">Rules</h4>
                 </div>
                 <div class="modal-body">
-                    BETS
                 <ul>
                     <li>
                       Straight
