@@ -1,0 +1,170 @@
+MONEY = 500; //STARTING MONEY
+
+document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+var amtRed = 0,
+	amtGreen = 0,
+	amtBlack = 0,
+	total = 1,
+	red = 0,
+	green = 0,
+	black = 0;
+timer();
+
+//START GAME
+function PlayGame() {
+	var rand = Math.floor(Math.random() * 15);
+	if (rand !== 0 && rand % 2 === 0) {
+		return 'RED';
+	}
+	if (rand !== 0 && rand % 2 === 1) {
+		return 'BLACK';
+	} else if (rand === 0) {
+		return 'GREEN';
+	}
+}
+
+//TEST GAMES
+function ButtonPlay() {
+	var outcome = PlayGame();
+	total += 1;
+	Stats(outcome);
+	Bet('RED', amtRed, outcome);
+	Bet('GREEN', amtGreen, outcome);
+	Bet('BLACK', amtBlack, outcome);
+	(amtRed = 0), (amtGreen = 0), (amtBlack = 0);
+	document.getElementById('money').innerHTML =
+		'Balance: ' + MONEY + ' ' + ' ' + red + ' ' + green + ' ' + black;
+	history(outcome);
+}
+
+//Red button bet
+function ButtonRed() {
+	var amount = parseInt(document.getElementById('Money').value);
+	document.getElementById('Money');
+	if (amount > MONEY) {
+		amount = 0;
+	}
+	if (amount < 0) {
+		amount = 0;
+	}
+	amtRed += amount;
+	MONEY -= amount;
+	console.log('Bet red ', amount);
+	document.getElementById('money').innerHTML =
+		'Balance: ' + MONEY + ' ' + ' ' + red + ' ' + green + ' ' + black;
+}
+
+//Green button bet
+function ButtonGreen() {
+	var amount = parseInt(document.getElementById('Money').value);
+	if (amount > MONEY) {
+		amount = 0;
+	}
+	if (amount < 0) {
+		amount = 0;
+	}
+	amtGreen += amount;
+	MONEY -= amount;
+	console.log('Bet green ', amount);
+	document.getElementById('money').innerHTML =
+		'Balance: ' + MONEY + ' ' + ' ' + red + ' ' + green + ' ' + black;
+}
+
+//Black button bet
+function ButtonBlack() {
+	var amount = parseInt(document.getElementById('Money').value);
+	if (amount > MONEY || amount < 0) {
+		amount = 0;
+	}
+	if (amount < 0) {
+		amount = 0;
+	}
+	amtBlack += amount;
+	MONEY -= amount;
+	console.log('Bet black ', amount);
+	document.getElementById('money').innerHTML =
+		'Balance: ' + MONEY + ' ' + ' ' + red + ' ' + green + ' ' + black;
+}
+
+//BETTING
+function Bet(bet, amount, game) {
+	if (bet === game) {
+		if (game === 'RED' || game === 'BLACK') {
+			RoBWin(amount);
+		} else if (game === 'GREEN') {
+			GWin(amount);
+		}
+	}
+}
+
+function Stats(game) {
+	if (game === 'RED') {
+		red += 1;
+	} else if (game === 'BLACK') {
+		black += 1;
+	} else {
+		green += 1;
+	}
+}
+
+//RED OR BLACK WIN
+function RoBWin(amount) {
+	MONEY += amount * 2;
+}
+
+//GREEN WIN
+function GWin(amount) {
+	MONEY += amount * 14;
+}
+
+function ButtonAdd(num) {
+	var value = parseInt(document.getElementById('Money').value);
+	value += num;
+	document.getElementById('Money').value = value;
+}
+function ButtonMulti(num) {
+	var value = parseInt(document.getElementById('Money').value);
+	value *= num;
+	document.getElementById('Money').value = value;
+}
+
+function ButtonClear() {
+	var value = parseInt(document.getElementById('Money').value);
+	document.getElementById('Money').value = 0;
+}
+
+function ButtonMax() {
+	var value = parseInt(document.getElementById('Money').value);
+	value = MONEY;
+	document.getElementById('Money').value = value;
+}
+
+function getMoney() {
+	return MONEY;
+}
+
+function setMoney(value) {
+	MONEY = value;
+}
+
+function timer() {
+	var timeleft = 15;
+	var downloadTimer = setInterval(function() {
+		timeleft -= 1;
+		document.getElementById('countdowntimer').textContent = timeleft;
+		if (timeleft <= 0) {
+			ButtonPlay();
+			clearInterval(downloadTimer);
+			setInterval(timer());
+		}
+	}, 1000);
+}
+
+var hist = [];
+function history(color) {
+	hist.push(color);
+	if (hist.length > 8) {
+		hist.splice(0, 1);
+	}
+	document.getElementById('history').innerHTML = hist.join(' ');
+}
