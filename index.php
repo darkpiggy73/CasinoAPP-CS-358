@@ -32,31 +32,31 @@
                 <ul>
                     <li>
                       Straight
-                      <li>This is a bet that covers only one number. In order to make this bet, place the chip inside the square of the number.
+                      <ul><li>This is a bet that covers only one number. In order to make this bet, place the chip inside the square of the number.</li></ul>
                     </li>
                     <li>
                       Split
-                      <li>A bet on two numbers which are adjacent on the table, made by placing the chip on the shared line of the two numbers’ squares.
+                      <ul><li>A bet on two numbers which are adjacent on the table, made by placing the chip on the shared line of the two numbers’ squares.</li></ul>
                     </li>
                     <li>
                       Street
-                      <li>A bet on three consecutive numbers located on the same line. Make the bet by placing the chip on the outer corner of the row.
+                      <ul><li>A bet on three consecutive numbers located on the same line. Make the bet by placing the chip on the outer corner of the row.</li></ul>
                     </li>
                     <li>
                       Six Line
-                      <li>A bet on two adjacent lines. In order to make this bet, you have to place the chip on the common outer corner of the two lines.
+                      <ul><li>A bet on two adjacent lines. In order to make this bet, you have to place the chip on the common outer corner of the two lines.</li></ul>
                     </li>
                     <li>
                       Corner
-                      <li>This is a four-number bet, placed by putting the chip on the common corner of the four numbers. Also called ‘square’ bet.
+                      <ul><li>This is a four-number bet, placed by putting the chip on the common corner of the four numbers. Also called ‘square’ bet.</li></ul>
                     </li>
                     <li>
                       Trio
-                      <li>A three-number bet that includes the zero or zeros. Place the chip on the line shared by the zero box and the two other numbers.
+                      <ul><li>A three-number bet that includes the zero or zeros. Place the chip on the line shared by the zero box and the two other numbers.</li></ul>
                     </li>
                     <li>
                       Basket
-                      <li>Bet on 0, 1, 2 and 3 with a chip on the corner shared by the zero box and the first line. In American Roulette, it includes the double zero.
+                      <ul><li>Bet on 0, 1, 2 and 3 with a chip on the corner shared by the zero box and the first line. In American Roulette, it includes the double zero.</li></ul>
                     </li>
                 </ul>
                         
