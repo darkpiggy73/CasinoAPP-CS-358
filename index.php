@@ -29,7 +29,7 @@
                 </div>
                 <div class="modal-body">
                     BETS
-                  <ul>
+                <ul>
                     <li>
                       Straight
                       <li>This is a bet that covers only one number. In order to make this bet, place the chip inside the square of the number.</li>
@@ -58,7 +58,7 @@
                       Basket
                       <li>Bet on 0, 1, 2 and 3 with a chip on the corner shared by the zero box and the first line. In American Roulette, it includes the double zero.</li>
                     </li>
-                    
+                </ul>
                         
                 </div>
                 <div class="modal-footer">
