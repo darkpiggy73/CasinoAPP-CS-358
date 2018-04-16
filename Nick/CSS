@@ -1,0 +1,49 @@
+.Red {
+    background-color: RED;
+    border: none;
+    color: white;
+    align-items: flex-start;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.Green {
+    background-color: GREEN;
+    border: none;
+    color: white;
+    align-items: flex-start;
+    padding: 15px 30px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.Black {
+    background-color: BLACK;
+    border: none;
+    align-items: flex-start;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.indent {
+  display: inline;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 4px;
+  justify-content: center;
+  height: 15px;
+}
+
+
