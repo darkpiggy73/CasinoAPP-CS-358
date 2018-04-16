@@ -1,0 +1,34 @@
+<html>
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script>
+$.ajax({
+   method:'post',
+   dataType: "json",
+   url: 'initMoney.php',
+  data: {username: localStorage.getItem('username')},
+  success: function(data) {
+  document.getElementById('result').innerHTML = data;
+}
+ });
+</script>
+<script>
+  function addMoney(){
+$.ajax({
+   method:'post',
+   dataType: "json",
+   url: 'changeMoney.php',
+  data: {username: localStorage.getItem('username')},
+  success: function(data) {
+  document.getElementById('result').innerHTML = data;
+}
+ });
+  }
+</script>
+  
+</head>
+<body>
+  <h1>You logged in! You have <div id="result"></div> coin!</h1>
+  <button onclick="addMoney()">Add 10 Coin to your Account</button>
+</body>
+</html>
