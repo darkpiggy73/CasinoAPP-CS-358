@@ -1,4 +1,5 @@
 MONEY = 500; //STARTING MONEY
+// jshint maxerr:1000
 
 document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
 var amtRed = 0,
