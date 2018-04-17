@@ -1,3 +1,4 @@
+<!--let php = require('php');-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,8 +10,8 @@
   
   <body>
     <p id = "money"> </p>
-    <p> The Game will begin in <span id="countdowntimer">15 </span> Seconds</p>
-    
+        <p> The Game will begin in <span id="countdowntimer">15 </span> Seconds</p>
+    <p id = "game"> </p>
     <button class="Red" onclick="ButtonRed()">Red 2x</button>
     <button class="Green" onclick="ButtonGreen()">Green 14x</button>
     <button class="Black" onclick="ButtonBlack()">Black 2x</button>
@@ -26,8 +27,58 @@
     <button onclick="ButtonMulti(.5)">1/2x</button>
     <button onclick="ButtonMulti(2)">2x</button>
     <button onclick="ButtonMulti(5)">5x</button>
-    
     <p id = "history"></p>
+
+    <table>
+      <tr>
+        <td><button onclick="BetOnSpace(1)" class = "Red">1 </button></td>
+        <td><button onclick="BetOnSpace(2)" class = "Black">2 </button></td>
+        <td><button onclick="BetOnSpace(3)" class = "Red">3 </button></td>
+        <td><button onclick="BetOnSpace(4)" class = "Black">4 </button></td>
+        <td><button onclick="BetOnSpace(5)" class = "Red">5 </button></td>
+        <td><button onclick="BetOnSpace(6)" class = "Black">6 </button></td>
+      </tr>
+      <tr>
+        <td><button onclick="BetOnSpace(7)" class = "Red">7 </button></td>
+        <td><button onclick="BetOnSpace(8)" class = "Black">8 </button></td>
+        <td><button onclick="BetOnSpace(9)" class = "Red">9 </button></td>
+        <td><button onclick="BetOnSpace(10)" class = "Black">10</button></td>
+        <td><button onclick="BetOnSpace(11)" class = "Red">11</button></td>
+        <td><button onclick="BetOnSpace(12)" class = "Black">12</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="BetOnSpace(13)" class = "Red">13 </button></td>
+        <td><button onclick="BetOnSpace(14)" class = "Black">14 </button></td>
+        <td><button onclick="BetOnSpace(15)" class = "Red">15</button></td>
+        <td><button onclick="BetOnSpace(16)" class = "Black">16</button></td>
+        <td><button onclick="BetOnSpace(17)" class = "Red">17</button></td>
+        <td><button onclick="BetOnSpace(18)" class = "Black">18</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="BetOnSpace(19)" class = "Red">19</button></td>
+        <td><button onclick="BetOnSpace(20)" class = "Black">20</button></td>
+        <td><button onclick="BetOnSpace(21)" class = "Red">21</button></td>
+        <td><button onclick="BetOnSpace(22)" class = "Black">22</button></td>
+        <td><button onclick="BetOnSpace(23)" class = "Red">23</button></td>
+        <td><button onclick="BetOnSpace(24)" class = "Black">24</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="BetOnSpace(25)" class = "Red">25</button></td>
+        <td><button onclick="BetOnSpace(26)" class = "Black">26</button></td>
+        <td><button onclick="BetOnSpace(27)" class = "Red">27</button></td>
+        <td><button onclick="BetOnSpace(28)" class = "Black">28</button></td>
+        <td><button onclick="BetOnSpace(29)" class = "Red">29</button></td>
+        <td><button onclick="BetOnSpace(30)" class = "Black">30</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="BetOnSpace(31)" class = "Red">31</button></td>
+        <td><button onclick="BetOnSpace(32)" class = "Black">32</button></td>
+        <td><button onclick="BetOnSpace(33)" class = "Red">33</button></td>
+        <td><button onclick="BetOnSpace(34)" class = "Black">34</button></td>
+        <td><button onclick="BetOnSpace(35)" class = "Red">35</button></td>
+        <td><button onclick="BetOnSpace(36)" class = "Black">36</button></td>
+      </tr>
+    </table>
     <script src="index.js"></script>
   </body>
 </html>
