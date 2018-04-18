@@ -46,10 +46,12 @@ function ButtonPlay() {
 	for(var j = 0; j < 36; j++) {
 		spaceBet(j, amtSpace[j], outcome[1]);
 	}
-	LoHBet('LOW', amtLowHigh[k], outcome[2]);
-	LoHBet('HIGH', amtLowHigh[k], outcome[2]);
+	LoHBet('LOW', amtLowHigh[0], outcome[2]);
+	LoHBet('HIGH', amtLowHigh[1], outcome[2]);
 	
 	(amtRed = 0), (amtGreen = 0), (amtBlack = 0);
+	amtLowHigh[0] = 0;
+	amtLowHigh[1] = 0;
 	for(var i = 0; i < 36; i++) {
     amtSpace[i] = 0;
   }
