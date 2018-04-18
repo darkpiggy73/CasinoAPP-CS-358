@@ -54,16 +54,15 @@ function ButtonPlay() {
 	//What is K?
 	//LoHBet('LOW', amtLowHigh[k], outcome[2]);
 	//LoHBet('HIGH', amtLowHigh[k], outcome[2]);
-	document.getElementById('money').innerHTML =
-		'Balance: ' + MONEY + '  ' + 'Stats: ' + red + ' ' + green + ' ' + black;
-
+	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+  document.getElementById('stats').innerHTML = 'Red:' + red + '<br> Green: ' + green + '<br>Black: ' + black;
 	document.getElementById('game').innerHTML = outcome[0] + ' ' + outcome[1];
 }
 
 //Red button bet
 function ButtonRed() {
 	var amount = parseInt(document.getElementById('Money').value);
-	document.getElementById('Money');
+	//document.getElementById('Money');
 	if (amount > MONEY || amount < 0) {
 		amount = 0;
 	} else {
@@ -71,7 +70,7 @@ function ButtonRed() {
 		MONEY -= amount;
 		console.log('Bet red ', amount);
 		document.getElementById('money').innerHTML =
-			'Balance: ' + MONEY + '  ' + red + ' ' + green + ' ' + black;
+			'Balance: ' + MONEY;
 	}
 }
 
@@ -85,7 +84,7 @@ function ButtonGreen() {
 	MONEY -= amount;
 	console.log('Bet green ', amount);
 	document.getElementById('money').innerHTML =
-		'Balance: ' + MONEY + '  ' + red + ' ' + green + ' ' + black;
+		'Balance: ' + MONEY;
 }
 
 //Black button bet
@@ -98,7 +97,7 @@ function ButtonBlack() {
 	MONEY -= amount;
 	console.log('Bet black ', amount);
 	document.getElementById('money').innerHTML =
-		'Balance: ' + MONEY + '  ' + red + ' ' + green + ' ' + black;
+		'Balance: ' + MONEY;
 }
 
 function BetOnSpace(i) {
@@ -110,7 +109,7 @@ function BetOnSpace(i) {
 	MONEY -= amount;
 	console.log('Bet Space ', i);
 	document.getElementById('money').innerHTML =
-		'Balance: ' + MONEY + '  ' + red + ' ' + green + ' ' + black;
+		'Balance: ' + MONEY;
 }
 
 //BETTING
@@ -173,7 +172,7 @@ function BetOnSpace(i) {
 	MONEY -= amount;
 	console.log('Bet Space ', i);
 	document.getElementById('money').innerHTML =
-		'Balance: ' + MONEY + '  ' + red + ' ' + green + ' ' + black;
+		'Balance: ' + MONEY;
 }
 
 //Low button bet
@@ -186,7 +185,7 @@ function ButtonLow() {
 	MONEY -= amount;
 	console.log('Bet Low ', amount);
 	document.getElementById('money').innerHTML =
-		'Balance: ' + MONEY + '  ' + red + ' ' + green + ' ' + black;
+		'Balance: ' + MONEY;
 }
 
 //High button bet
@@ -199,7 +198,7 @@ function ButtonHigh() {
 	MONEY -= amount;
 	console.log('Bet High ', amount);
 	document.getElementById('money').innerHTML =
-		'Balance: ' + MONEY + '  ' + red + ' ' + green + ' ' + black;
+		'Balance: ' + MONEY;
 }
 
 //BET LOW OR HIGH
