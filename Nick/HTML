@@ -6,10 +6,10 @@
   </head>
   <body>
     <ul>
-      <li><a class="active" href="#home">Home</a></li>
-      <li><a href="#account">Account</a></li>
-      <li><a href="#instruction">Instructions</a></li>
-      <li style="float:right"><a> <p id = "money"> </p> </a></li>
+      <li><a class="Home" href="#home">Home</a></li>
+      <li><a href="Account;">Account</a></li>
+      <li><a href="#" onclick="instructions(); return false;">Instructions</a></li>
+      <li style="float:right"><a class="balance" id = "money"> </a></li>
       <li style="float:right"><a href="#register">Register</a></li>
       <li style="float:right"><a href="#login">Login</a></li>
     </ul>
@@ -27,7 +27,7 @@
       </div>
       <div class="content">
         
-        <p id = "money"> </p>
+        <p id = "stats"> </p>
         <p> The Game will begin in <span id="countdowntimer">10 </span> Seconds</p>
     <p id = "game"> </p>
     <button class="Red" onclick="ButtonRed()">Red 2x</button>
