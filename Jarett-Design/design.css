@@ -18,37 +18,37 @@ body
 }
 .wrapper
 {
-  width:600px;
+  width:800px;
   margin: 0 auto 0 auto;
 }
 
 .heading
 {
-  height:100px;
+  height:75px;
   padding: 20px;
   text-align: center;
-  font-family: Helvetica;
-  font-weight: 50;
-  font-stretch: semi-expanded;
-  font-size: 15pt;
+  font-family: Casino;
+  font-size: 20pt;
 }
 
 .navigation
 {
-  height: 50px;
+  height: 200px;
+  width: 650px;
 }
 
 .log-in
 {
-  margin: 50px auto;
-  display: table;
-  width: 100px;
+  margin: 25px;
+  display: inline-table;
+  width: 125px;
   height: 50px;
   border: 3px solid white;
   background-color: rgba(255, 255, 255, 0);
   color: white;
-  font-family: Sans-Serif;
+  font-family: Casino;
   font-weight: bold;
+  font-size: 12pt;
   border-radius: 5px;
   transition: background-color 500ms, color 500ms;
 }
@@ -60,26 +60,122 @@ body
   transition: background-color 500ms, color 500ms;
 }
 
+.register
+{
+  margin-right: 25px;
+  display: inline-table;
+  width: 125px;
+  height: 50px;
+  border: 3px solid white;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  font-family: Casino;
+  font-weight: bold;
+  font-size: 12pt;
+  border-radius: 5px;
+  transition: background-color 500ms, color 500ms;
+}
+.register:hover
+{
+  background-color: rgba(255, 255, 255, 1);
+  color: #222;
+  cursor: pointer;
+  transition: background-color 500ms, color 500ms;
+}
+
+.instructions
+{
+  margin-right: 25px;
+  display: inline-table;
+  width: 125px;
+  height: 50px;
+  border: 3px solid white;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+ font-family: Casino;
+  font-weight: bold;
+  font-size: 12pt;
+  border-radius: 5px;
+  transition: background-color 500ms, color 500ms;
+}
+.instructions:hover
+{
+  background-color: rgba(255, 255, 255, 1);
+  color: #222;
+  cursor: pointer;
+  transition: background-color 500ms, color 500ms;
+}
+
+.log-out
+{
+  display: inline-table;
+  width: 125px;
+  height: 50px;
+  border: 3px solid white;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  font-family: Casino;
+  font-weight: bold;
+  font-size: 12pt;
+  border-radius: 5px;
+  transition: background-color 500ms, color 500ms;
+}
+.log-out:hover
+{
+  background-color: rgba(255, 255, 255, 1);
+  color: #222;
+  cursor: pointer;
+  transition: background-color 500ms, color 500ms;
+}
+
 .content
 {
   min-height: 400px;
-  width: 400px;
+  width: 600px;
   float: left;
+  font-family: Casino;
+  font-size: 20pt;
+}
+
+.balance
+{
+  resize: none;
+  background: transparent;
+  color: white;
+  font-family: Casino;
+  border: none;
+  overflow: hidden;
+  font-size: 15pt;
 }
 
 .sidebar
 {
   width: 200px;
   float: right;
-  min-height: 400px;
+  min-height: 500px;
+  font-family: Casino;
 }
 
+.gamedata
+{
+  resize: none;
+  border: 2px black;
+  border-radius: 4px;
+  font-family: Helvetica;
+}
 .footer
 {
+  border: 2px double white;
+  border-radius: 4px;
   clear: both;
   background: black;
   height: 40px;
   color: white;
   text-align: center;
   padding: 10px;
+}
+
+@font-face {
+font-family: "Casino";
+src: url("fonts/CASIQN__.TTF");
 }
