@@ -9,7 +9,7 @@
       <li><a class="active" href="#home">Home</a></li>
       <li><a href="#account">Account</a></li>
       <li><a href="#instruction">Instructions</a></li>
-      <li><a href="#" onclick="clicker();">News</a></li>
+      <li style="float:right"><a> <p id = "money"> </p> </a></li>
       <li style="float:right"><a href="#register">Register</a></li>
       <li style="float:right"><a href="#login">Login</a></li>
     </ul>
