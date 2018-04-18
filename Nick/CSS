@@ -32,6 +32,10 @@ li a:hover {
   background-color: #333;
 }
 
+.balance:hover {
+  background-color: #111;
+}
+
 body
 {
   background-color: #0c0c0c;
@@ -59,7 +63,7 @@ body
   padding: 20px;
   text-align: center;
   font-family: Helvetica;
-  font-weight: 50;
+  font-weight: 100;
   font-stretch: semi-expanded;
   font-size: 15pt;
 }
