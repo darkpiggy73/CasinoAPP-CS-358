@@ -13,12 +13,14 @@ $.ajax({
  });
 </script>
 <script>
-  function addMoney(){
+  function addMoney(amount){
 $.ajax({
    method:'post',
    dataType: "json",
    url: 'changeMoney.php',
-  data: {username: localStorage.getItem('username')},
+  data: {username: localStorage.getItem('username'),
+        dataAmount: amount
+        },
   success: function(data) {
   document.getElementById('result').innerHTML = data;
 }
@@ -29,6 +31,6 @@ $.ajax({
 </head>
 <body>
   <h1>You logged in! You have <div id="result"></div> coin!</h1>
-  <button onclick="addMoney()">Add 10 Coin to your Account</button>
+  <button onclick="addMoney(100)">Add 10 Coin to your Account</button>
 </body>
 </html>

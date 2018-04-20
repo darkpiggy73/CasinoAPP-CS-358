@@ -20,20 +20,20 @@ if ( isset( $_POST['submit']) && (strlen( $_POST['usernameL'])!=0) && (strlen( $
         $stmt = simpleQuery($db, $query);
   
         if($stmt == NULL) {
-            include "index.html";
+            include "startpage.html";
         				  }
  		 else{
       		$stmt->bind_result($username, $password, $money);
     		$stmt->fetch();
   			if(strcmp($pass,$password)==0){
-  		    include "moneyTest.html";
+  		    include "index.html";
    			 }
            else{
-             include "index.html";
+             include "startpage.html";
            }
          }
   }
   else {
-    include "index.html";
+    include "startpage.html";
   }
 ?>

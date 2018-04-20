@@ -7,13 +7,14 @@
         }
 
   $username = $_POST['username']; 
+$amount = $_POST['dataAmount']; 
   
  $query = "SELECT username, password, money FROM logins WHERE username = '$username';";
         $stmt1 = simpleQuery($db, $query);
   
       	$stmt1->bind_result($username1, $password, $money);
     $stmt1->fetch();
-$money=$money+10;
+$money=$money+$amount;
 $moneyFinal=$money;
         // 2. Run the Query
   //UPDATE logins SET money = '10' WHERE username = '$username';

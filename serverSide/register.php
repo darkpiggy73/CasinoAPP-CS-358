@@ -21,7 +21,7 @@ if ( isset( $_POST['submit'] ) ) {
             include 'regFail.html';
         }
       	else{
-          include 'signin.html';
+          include 'startpage.html';
           //die('{ "Message": "Inserted Data." }');
         }
 

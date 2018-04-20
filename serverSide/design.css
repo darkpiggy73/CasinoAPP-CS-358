@@ -1,0 +1,197 @@
+*{
+  margin: 0;
+  padding: 0;
+  outline:0;
+}
+html, body
+{
+  height: 100%;
+}
+
+.buttonAdd{
+  border-color: black;
+  background-color: red;
+  color: white;
+}
+
+input[type=text], select {
+    border: 2px solid white;
+    border-radius: 4px;
+  	background-color: black;
+    color: white;
+}
+input[type=password], select {
+    border: 2px solid white;
+    border-radius: 4px;
+  	background-color: black;
+    color: white;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow:hidden;
+  background-color: #111;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding:14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #333;
+}
+
+.balance:hover {
+  background-color: #111;
+}
+
+body
+{
+  background-color: #0c0c0c;
+  background-image: url(http://www.kinyu-z.net/data/wallpapers/91/1020688.jpg);
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: soft-light;
+  color: white;
+  outline:0;
+
+}
+.wrapper
+{
+  width:600px;
+  margin: 0 auto 0 auto;
+}
+
+.instructions
+{
+  outline:0;
+}
+.heading
+{
+  height:100px;
+  padding: 20px;
+  text-align: center;
+  font-family: Helvetica;
+  font-weight: 100;
+  font-stretch: semi-expanded;
+  font-size: 15pt;
+}
+
+.navigation
+{
+  height: 50px;
+  outline:0;
+}
+
+.log-in
+{
+  margin: 50px auto;
+  display: table;
+  width: 100px;
+  height: 50px;
+  border: 3px solid white;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  font-family: Sans-Serif;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 500ms, color 500ms;
+  outline:0;
+}
+.log-in:hover
+{
+  background-color: rgba(255, 255, 255, 1);
+  color: #222;
+  cursor: pointer;
+  transition: background-color 500ms, color 500ms;
+  outline:0;
+}
+
+.content
+{
+  height: auto;
+  width: auto;
+  float: left;
+  outline: focus;
+  align-content: center;
+}
+
+.sidebar
+{
+  width: 200px;
+  float: right;
+  min-height: 400px;
+  outline: focus;
+
+}
+
+.footer
+{
+  clear: both;
+  background: black;
+  color: white;
+  text-align: center;
+  left:0;
+  bottom: 1px;
+  position:relative;
+  width:100%;
+}
+
+.Red {
+    background-color: RED;
+    border: none;
+    color: white;
+    align-items: flex-start;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.Green {
+    background-color: GREEN;
+    border: none;
+    color: white;
+    align-items: flex-start;
+    padding: 15px 30px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.Black {
+    background-color: BLACK;
+    border: none;
+    align-items: flex-start;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.indent {
+  display: inline;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 4px;
+  justify-content: center;
+  height: 15px;
+}
