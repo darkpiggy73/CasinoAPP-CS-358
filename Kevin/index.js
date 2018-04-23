@@ -2,15 +2,19 @@ var MONEY = 500; //STARTING MONEY
 document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
 var 	amtRed = 0,
 	amtGreen = 0,
-	amtBlack = 0;
-	amtSpace = [];
-	amtLowHigh = [];
+	amtBlack = 0,
+	amtSpace = [],
+	amtLowHigh = [],
+	amtCol = [];
 
 for(var i = 0; i < 36; i++) {
   	amtSpace[i] = 0;
 }
 for(var i = 0; i < 2; i++) {
 	amtLowHigh[i] = 0;
+}
+for(var i = 0; i < 3; i++) {
+  amtCol[i] = 0;
 }
 
 //START GAME
@@ -33,6 +37,18 @@ function PlayGame() {
 	} else {
 		outcome[2] = 'GREEN';
 	}
+	if (rand === 0) {
+	  outcome[3] = 'GREEN';
+	}
+	else if (rand%3 === 1) {
+	  outcome[3] = "LEFT";
+	}
+	else if (rand%3 === 2) {
+	  outcome[3] = "MIDDLE";
+	}
+	else if (rand%3 === 0) {
+	  outcome[3] = "RIGHT";
+	}
 	
 	return outcome;
 }
@@ -48,10 +64,16 @@ function ButtonPlay() {
 	}
 	LoHBet('LOW', amtLowHigh[0], outcome[2]);
 	LoHBet('HIGH', amtLowHigh[1], outcome[2]);
+	colBet('LEFT', amtCol[0], outcome[3]);
+	colBet('MIDDLE', amtCol[1], outcome[3]);
+	colBet('RIGHT', amtCol[2], outcome[3]);
 	
 	(amtRed = 0), (amtGreen = 0), (amtBlack = 0);
 	amtLowHigh[0] = 0;
 	amtLowHigh[1] = 0;
+	amtCol[0] = 0;
+	amtCol[1] = 0;
+	amtCol[2] = 0;
 	for(var i = 0; i < 36; i++) {
     amtSpace[i] = 0;
   }
@@ -133,6 +155,42 @@ function ButtonHigh() {
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
 }
 
+//Left column bet
+function ButtonLeft() {
+	var amount = parseInt(document.getElementById('Money').value);
+	if (amount > MONEY || amount < 0) {
+		amount = 0;
+	}
+	amtCol[0] += amount;
+	MONEY -= amount;
+	console.log('Bet Left ', amount);
+	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+}
+
+//Middle column bet
+function ButtonMiddle() {
+	var amount = parseInt(document.getElementById('Money').value);
+	if (amount > MONEY || amount < 0) {
+		amount = 0;
+	}
+	amtCol[1] += amount;
+	MONEY -= amount;
+	console.log('Bet Middle ', amount);
+	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+}
+
+//Right column bet
+function ButtonRight() {
+	var amount = parseInt(document.getElementById('Money').value);
+	if (amount > MONEY || amount < 0) {
+		amount = 0;
+	}
+	amtCol[2] += amount;
+	MONEY -= amount;
+	console.log('Bet Right ', amount);
+	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+}
+
 
 //BETTING
 function Bet(bet, amount, game) {
@@ -159,6 +217,13 @@ function LoHBet(bet, amount, game) {
 	}
 }
 
+//BET ON COLUMNS
+function colBet(bet, amount, game) {
+  if (bet === game) {
+    colWin(amount);
+  }
+}
+
 //RED OR BLACK WIN
 function RoBWin(amount) {
 	MONEY += amount * 2;
@@ -174,8 +239,14 @@ function GWin(amount) {
 	MONEY += amount * 14;
 }
 
+//SPACE WIN
 function spaceWin(amount) {
   MONEY += amount * 36;
+}
+
+//COLUMN WIN
+function colWin(amount) {
+  MONEY += amount * 3;
 }
 
 function ButtonAdd(num) {
