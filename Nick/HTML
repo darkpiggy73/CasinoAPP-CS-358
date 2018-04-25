@@ -5,107 +5,185 @@
     <link rel="stylesheet" href="design.css" type="text/css">
   </head>
   <body>
-    <ul>
+    <div class="wrapper">
+      <ul>
       <li><a class="Home" href="#home">Home</a></li>
       <li><a href="Account;">Account</a></li>
       <li><a href="#" onclick="instructions(); return false;">Instructions</a></li>
       <li style="float:right"><a class="balance" id = "money"> </a></li>
-      <li style="float:right"><a href="#register">Register</a></li>
-      <li style="float:right"><a href="#login">Login</a></li>
+      <li style="float:right"><a href="#logout">Log Out</a></li>
     </ul>
-    
-    <div class="wrapper">
       <div class="heading">
         <h1>Welcome to Casino Roulette</h1>
       </div>
-      <div class="navigation">
-        <button class="log-in">
-          LOG IN
-        </button>
-        
+      <div class="navigation" style="text-align: center">
         
       </div>
-      <div class="content">
-        
-        <p id = "stats"> </p>
-        <p> The Game will begin in <span id="countdowntimer">10 </span> Seconds</p>
-    <p id = "game"> </p>
-    <button class="Red" onclick="ButtonRed()">Red 2x</button>
-    <button class="Green" onclick="ButtonGreen()">Green 14x</button>
-    <button class="Black" onclick="ButtonBlack()">Black 2x</button>
-    <input type="number" step="1" id="Money" value="0" class ="indent" />
-
-    <button onclick="ButtonClear()">Clear</button>
-    <button onclick="ButtonAdd(1)">+1</button>
-    <button onclick="ButtonAdd(10)">+10</button>
-    <button onclick="ButtonAdd(50)">+50</button>
-    <button onclick="ButtonAdd(100)">+100</button>
-    <button onclick="ButtonMax()">Max</button>
-
-    <button onclick="ButtonMulti(.5)">1/2x</button>
-    <button onclick="ButtonMulti(2)">2x</button>
-    <button onclick="ButtonMulti(5)">5x</button>
-    <p id = "history"></p>
-
-    <table>
-      <tr>
-        <td><button onclick="BetOnSpace(1)" class = "Red">1 </button></td>
-        <td><button onclick="BetOnSpace(2)" class = "Black">2 </button></td>
-        <td><button onclick="BetOnSpace(3)" class = "Red">3 </button></td>
-        <td><button onclick="BetOnSpace(4)" class = "Black">4 </button></td>
-        <td><button onclick="BetOnSpace(5)" class = "Red">5 </button></td>
-        <td><button onclick="BetOnSpace(6)" class = "Black">6 </button></td>
-      </tr>
-      <tr>
-        <td><button onclick="BetOnSpace(7)" class = "Red">7 </button></td>
-        <td><button onclick="BetOnSpace(8)" class = "Black">8 </button></td>
-        <td><button onclick="BetOnSpace(9)" class = "Red">9 </button></td>
-        <td><button onclick="BetOnSpace(10)" class = "Black">10</button></td>
-        <td><button onclick="BetOnSpace(11)" class = "Red">11</button></td>
-        <td><button onclick="BetOnSpace(12)" class = "Black">12</button></td>
-      </tr>
-      <tr>
-        <td><button onclick="BetOnSpace(13)" class = "Red">13 </button></td>
-        <td><button onclick="BetOnSpace(14)" class = "Black">14 </button></td>
-        <td><button onclick="BetOnSpace(15)" class = "Red">15</button></td>
-        <td><button onclick="BetOnSpace(16)" class = "Black">16</button></td>
-        <td><button onclick="BetOnSpace(17)" class = "Red">17</button></td>
-        <td><button onclick="BetOnSpace(18)" class = "Black">18</button></td>
-      </tr>
-      <tr>
-        <td><button onclick="BetOnSpace(19)" class = "Red">19</button></td>
-        <td><button onclick="BetOnSpace(20)" class = "Black">20</button></td>
-        <td><button onclick="BetOnSpace(21)" class = "Red">21</button></td>
-        <td><button onclick="BetOnSpace(22)" class = "Black">22</button></td>
-        <td><button onclick="BetOnSpace(23)" class = "Red">23</button></td>
-        <td><button onclick="BetOnSpace(24)" class = "Black">24</button></td>
-      </tr>
-      <tr>
-        <td><button onclick="BetOnSpace(25)" class = "Red">25</button></td>
-        <td><button onclick="BetOnSpace(26)" class = "Black">26</button></td>
-        <td><button onclick="BetOnSpace(27)" class = "Red">27</button></td>
-        <td><button onclick="BetOnSpace(28)" class = "Black">28</button></td>
-        <td><button onclick="BetOnSpace(29)" class = "Red">29</button></td>
-        <td><button onclick="BetOnSpace(30)" class = "Black">30</button></td>
-      </tr>
-      <tr>
-        <td><button onclick="BetOnSpace(31)" class = "Red">31</button></td>
-        <td><button onclick="BetOnSpace(32)" class = "Black">32</button></td>
-        <td><button onclick="BetOnSpace(33)" class = "Red">33</button></td>
-        <td><button onclick="BetOnSpace(34)" class = "Black">34</button></td>
-        <td><button onclick="BetOnSpace(35)" class = "Red">35</button></td>
-        <td><button onclick="BetOnSpace(36)" class = "Black">36</button></td>
-      </tr>
-    </table>
-        
+      <div class="balance_area">
+        <p> <span id="countdowntimer">10 </span> Seconds <p id = "game"></p>  
+</div>
+      <div class="game_area">
+        <div class="wheel"></div>
+        <div class="bets" style="text-align: center">
+          <p>
+            <br>
+            <button onclick="ButtonGreen()" class="zero">
+              0
+            </button>
+            <button onclick="ButtonGreen()" class="zero">
+              00
+            </button>
+          </p>
+          <p>
+            <button class="reds">
+              1
+            </button>
+            <button class="blacks">
+              2
+            </button>
+            <button class="reds">
+              3
+            </button>
+            <button class="blacks">
+              4
+            </button>
+            <button class="reds">
+              5
+            </button>
+            <button class="blacks">
+              6
+            </button>
+            <button class="reds">
+              7
+            </button>
+            <button class="blacks">
+              8
+            </button>
+            <button class="reds">
+              9
+            </button>
+            <button class="blacks">
+              10
+            </button>
+            <button class="blacks">
+              11
+            </button>
+            <button class="reds">
+              12
+            </button>
+            <button class="blacks">
+              13
+            </button>
+            <button class="reds">
+              14
+            </button>
+            <button class="blacks">
+              15
+            </button>
+            <button class="reds">
+              16
+            </button>
+            <button class="blacks">
+              17
+            </button>
+            <button class="reds">
+              18
+            </button>
+            <button class="reds">
+              19
+            </button>
+            <button class="blacks">
+              20
+            </button>
+            <button class="reds">
+              21
+            </button>
+            <button class="blacks">
+              22
+            </button>
+            <button class="reds">
+              23
+            </button>
+            <button class="blacks">
+              24
+            </button>
+            <button class="reds">
+              25
+            </button>
+            <button class="blacks">
+              26
+            </button>
+            <button class="reds">
+              27
+            </button>
+            <button class="blacks">
+              28
+            </button>
+            <button class="blacks">
+              29
+            </button>
+            <button class="reds">
+              30
+            </button>
+            <button class="blacks">
+              31
+            </button>
+            <button class="reds">
+              32
+            </button>
+            <button class="blacks">
+              33
+            </button>
+            <button class="reds">
+              34
+            </button>
+            <button class="blacks">
+              35
+            </button>
+            <button class="reds">
+              36
+            </button>
+          </p>
+          <p>
+            <br>
+            <button class="general">
+              EVEN
+            </button>
+            <button class="all_Red">
+              RED
+            </button>
+            <button class="all_Black">
+              BLACKS
+            </button>
+            <button class="general">
+              ODD
+            </button>
+            <button class="general">
+              1 TO 18
+            </button>
+            <button class="general">
+              19 TO 36
+            </button>
+          </p>
+        </div>
+        <div class="play" style="text-align: center">
+          Bet Amount:<input type="number" value="0.00" class="bet_amt" id="Input" />
+          <button class="general">
+            PLAY!
+          </button>
+        </div>
       </div>
       <div class="sidebar">
-        Additional Info
+        Previous Bet History
+        <!--<textarea class="gamedata" rows="8" cols="25" readonly>-->
+Previous Game Data
+    <p id = "history"></p>
+    <br>
+    <p id = "stats"> </p>
       </div>
       <div class="footer">
         Game by Nick, Jarett, Aaron, Shaun, & Kevin
       </div>
-      
     </div>
     <script src="index.js"></script>
   </body>
