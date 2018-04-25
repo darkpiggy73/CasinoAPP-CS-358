@@ -1,55 +1,101 @@
-var MONEY = 500; //STARTING MONEY
-document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
-var 	amtRed = 0,
+var MONEY = 1000;
+addMoney(0);
+var amtRed = 0,
 	amtGreen = 0,
 	amtBlack = 0,
 	amtSpace = [],
-	amtLowHigh = [],
-	amtCol = [];
+	amtEven = 0,
+	amtOdd = 0,
+  amtLowHigh = [],
+  amtThirds = [],
+  amtCol = [];
 
-for(var i = 0; i < 36; i++) {
-  	amtSpace[i] = 0;
+
+for(var i = 0; i <= 37; i++) {
+  amtSpace[i] = 0;
 }
 for(var i = 0; i < 2; i++) {
 	amtLowHigh[i] = 0;
+}
+for (var i = 0; i < 3; i++) {
+  amtThirds[i] = 0;
 }
 for(var i = 0; i < 3; i++) {
   amtCol[i] = 0;
 }
 
+
+  function addMoney(amount){
+/*$.ajax({
+   method:'post',
+   dataType: "json",
+   url: 'changeMoney.php',
+  data: {username: localStorage.getItem('username'),
+        dataAmount: amount
+        },
+  success: function(data) {
+  MONEY=data;
+}
+  
+ });*/
+  }
+
+
 //START GAME
 function PlayGame() {
-	var rand = Math.floor(Math.random() * 36);
+	var rand = Math.floor(Math.random() * 37);
+	//var rand = 5;
 	var outcome = [];
 	outcome[1] = rand;
-	if (rand !== 0 && rand % 2 === 0) {
-		outcome[0] = 'BLACK';
-	}
-	if (rand !== 0 && rand % 2 === 1) {
-	  outcome[0] = 'RED';
-	} else if (rand === 0) {
-	  outcome[0] = 'GREEN';
-	}
-	if (rand < 19 && rand !== 0) {
-		outcome[2] = 'LOW';
-	} else if (rand > 18 && rand !== 0) {
-		outcome[2] = 'HIGH';
+	if (rand !== 0 && rand !== 37 && rand % 2 === 0) {
+		outcome[3] = 'EVEN';
+	} else if (rand !== 0 && rand !== 37 && rand % 2 === 1) {
+	  outcome[3] = 'ODD';
 	} else {
-		outcome[2] = 'GREEN';
+	  outcome[3] = "NONE";
 	}
-	if (rand === 0) {
-	  outcome[3] = 'GREEN';
-	}
-	else if (rand%3 === 1) {
-	  outcome[3] = "LEFT";
-	}
-	else if (rand%3 === 2) {
-	  outcome[3] = "MIDDLE";
-	}
-	else if (rand%3 === 0) {
-	  outcome[3] = "RIGHT";
+	if (rand === 0 || rand === 37) {
+	  outcome[0] = 'GREEN';
+	} else if (rand === 2 || rand === 4 || rand === 6 || rand === 8 || rand === 10 || rand === 11 || rand === 13 || rand === 15 || rand === 17 || rand === 20 || rand === 22 || rand === 24 || rand === 26 || rand === 28 || rand === 29 || rand === 31 || rand === 33 || rand === 36) {
+	  
+	  outcome[0] = "BLACK";
+	  
+	} else if (rand === 1 || rand === 3 || rand === 5 || rand === 7 || rand === 9 || rand === 12 || rand === 14 || rand === 16 || rand === 18 || rand === 19 || rand === 21 || rand === 23 || rand === 25 || rand === 27 || rand === 30 || rand === 32 || rand === 34 || rand === 36) {
+	  outcome[0] = "RED";
 	}
 	
+	if (rand < 19 && rand !== 0 && rand !== 37) {
+		outcome[2] = 'LOW';
+	} else if (rand > 18 && rand !== 0 && rand !== 37) {
+		outcome[2] = 'HIGH';
+	} else {
+		outcome[2] = 'NONE';
+	}
+	
+	if ( rand <= 12 && rand !== 0) {
+	  outcome[4] = "FIRST";
+	} else if (rand > 12 && rand <= 24) {
+	  outcome[4] = "SECOND";
+	} else if (rand > 24 && rand !== 37) {
+	  outcome[4] = "THIRD";
+	} else {
+	  outcome[4] = "NONE";
+	}
+	
+	if (rand === 0) {
+	  outcome[5] = 'GREEN';
+	}
+	else if (rand%3 === 1) {
+	  outcome[5] = "LEFT";
+	}
+	else if (rand%3 === 2) {
+	  outcome[5] = "MIDDLE";
+	}
+	else if (rand%3 === 0) {
+	  outcome[5] = "RIGHT";
+	}
+	
+	console.log(outcome);
 	return outcome;
 }
 
@@ -59,24 +105,44 @@ function ButtonPlay() {
 	Bet('RED', amtRed, outcome[0]);
 	Bet('GREEN', amtGreen, outcome[0]);
 	Bet('BLACK', amtBlack, outcome[0]);
-	for(var j = 0; j < 36; j++) {
-		spaceBet(j, amtSpace[j], outcome[1]);
-	}
+	
+	oddEvenBet('EVEN', amtEven, outcome[3]);
+	oddEvenBet('ODD', amtOdd, outcome[3]);
+	
 	LoHBet('LOW', amtLowHigh[0], outcome[2]);
 	LoHBet('HIGH', amtLowHigh[1], outcome[2]);
-	colBet('LEFT', amtCol[0], outcome[3]);
-	colBet('MIDDLE', amtCol[1], outcome[3]);
-	colBet('RIGHT', amtCol[2], outcome[3]);
 	
-	(amtRed = 0), (amtGreen = 0), (amtBlack = 0);
-	amtLowHigh[0] = 0;
+	ThirdsBet('FIRST', amtThirds[0], outcome[4]);
+	ThirdsBet('SECOND', amtThirds[1], outcome[4]);
+	ThirdsBet('THIRD', amtThirds[2], outcome[4]);
+	
+	colBet('LEFT', amtCol[0], outcome[5]);
+	colBet('MIDDLE', amtCol[1], outcome[5]);
+	colBet('RIGHT', amtCol[2], outcome[5]);
+	
+	for(var j = 0; j <= 37; j++) {
+	  spaceBet(j, amtSpace[j], outcome[1]);
+	}
+	
+	(amtRed = 0), (amtGreen = 0), (amtBlack = 0), (amtOdd = 0), (amtEven = 0);
+	for(var i = 0; i <= 37; i++) {
+    amtSpace[i] = 0;
+  }
+  amtLowHigh[0] = 0;
 	amtLowHigh[1] = 0;
+	
 	amtCol[0] = 0;
 	amtCol[1] = 0;
 	amtCol[2] = 0;
-	for(var i = 0; i < 36; i++) {
-    amtSpace[i] = 0;
+	
+  amtThirds[0] = 0;
+  amtThirds[1] = 0;
+  amtThirds[2] = 0;
+  
+  if (outcome[1] === 37) {
+    outcome[1] = "00";
   }
+  document.getElementById('chances').innerHTML = '';
 	document.getElementById('money').innerHTML =
 		'Balance: ' + MONEY + ' ' + outcome[0] + " " + outcome[1];
 }
@@ -89,9 +155,11 @@ function ButtonRed() {
 		amount = 0;
 	} else {
 		amtRed += amount;
+      addMoney(-amount);
 		MONEY -= amount;
 		console.log('Bet red ', amount);
 		document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+		document.getElementById('chances').innerHTML = 'BET RED: ' + amount + ', CHANCE OF WINNING ' + amount*2 + ': 49%';
 	}
 }
 
@@ -102,6 +170,7 @@ function ButtonGreen() {
 		amount = 0;
 	}
 	amtGreen += amount;
+   addMoney(-amount);
 	MONEY -= amount;
 	console.log('Bet green ', amount);
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
@@ -110,26 +179,51 @@ function ButtonGreen() {
 //Black button bet
 function ButtonBlack() {
 	var amount = parseInt(document.getElementById('Money').value);
-	if (amount > MONEY || amount < 0) {
+	if (amount > MONEY || amount < 0 ) {
 		amount = 0;
 	}
 	amtBlack += amount;
+   addMoney(-amount);
 	MONEY -= amount;
 	console.log('Bet black ', amount);
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
 }
-
-//Specific button bet
+//Betting on one of the spaces
 function BetOnSpace(i) {
   var amount = parseInt(document.getElementById('Money').value);
-  if (amount > MONEY || amount < 0) {
+  if (amount > MONEY || amount < 0 ) {
     amount = 0;
   }
   amtSpace[i] += amount;
+   addMoney(-amount);
   MONEY -= amount;
   console.log('Bet Space ', i);
   document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
  }
+//Betting on Evens
+function ButtonEven() {
+   var amount = parseInt(document.getElementById('Money').value);
+   if (amount > MONEY || amount < 0 ) {
+     amount = 0;
+   }
+   amtEven += amount;
+    addMoney(-amount);
+   MONEY -= amount;
+   console.log('Bet Even');
+   document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+ }
+//Betting on Odds
+function ButtonOdd(){
+  var amount = parseInt(document.getElementById('Money').value);
+   if (amount > MONEY || amount < 0) {
+     amount = 0;
+   }
+   amtOdd += amount;
+   addMoney(-amount);
+   MONEY -= amount;
+   console.log('Bet Odd');
+   document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+}
 
 //Low button bet
 function ButtonLow() {
@@ -138,6 +232,7 @@ function ButtonLow() {
 		amount = 0;
 	}
 	amtLowHigh[0] += amount;
+   addMoney(-amount);
 	MONEY -= amount;
 	console.log('Bet Low ', amount);
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
@@ -150,18 +245,53 @@ function ButtonHigh() {
 		amount = 0;
 	}
 	amtLowHigh[1] += amount;
+   addMoney(-amount);
 	MONEY -= amount;
 	console.log('Bet High ', amount);
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
 }
 
-//Left column bet
+function ButtonFirst() {
+  var amount = parseInt(document.getElementById('Money').value);
+	if (amount > MONEY || amount < 0) {
+		amount = 0;
+	}
+	amtThirds[0] += amount;
+   addMoney(-amount);
+	MONEY -= amount;
+	console.log('Bet First ', amount);
+	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+}
+function ButtonSecond() {
+  var amount = parseInt(document.getElementById('Money').value);
+	if (amount > MONEY || amount < 0 ) {
+		amount = 0;
+	}
+	amtThirds[1] += amount;
+   addMoney(-amount);
+	MONEY -= amount;
+	console.log('Bet Second ', amount);
+	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+}
+function ButtonThird() {
+  var amount = parseInt(document.getElementById('Money').value);
+	if (amount > MONEY || amount < 0) {
+		amount = 0;
+	}
+	amtThirds[2] += amount;
+   addMoney(-amount);
+	MONEY -= amount;
+	console.log('Bet Third ', amount);
+	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+}
+
 function ButtonLeft() {
 	var amount = parseInt(document.getElementById('Money').value);
 	if (amount > MONEY || amount < 0) {
 		amount = 0;
 	}
 	amtCol[0] += amount;
+   addMoney(-amount);
 	MONEY -= amount;
 	console.log('Bet Left ', amount);
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
@@ -174,6 +304,7 @@ function ButtonMiddle() {
 		amount = 0;
 	}
 	amtCol[1] += amount;
+   addMoney(-amount);
 	MONEY -= amount;
 	console.log('Bet Middle ', amount);
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
@@ -186,13 +317,12 @@ function ButtonRight() {
 		amount = 0;
 	}
 	amtCol[2] += amount;
+   addMoney(-amount);
 	MONEY -= amount;
 	console.log('Bet Right ', amount);
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
 }
-
-
-//BETTING
+  
 function Bet(bet, amount, game) {
 	if (bet === game) {
 		if (game === 'RED' || game === 'BLACK') {
@@ -202,8 +332,7 @@ function Bet(bet, amount, game) {
 		}
 	}
 }
-
-//BET ON SPECIFIC SPACE
+//If you win by selecting a space
 function spaceBet(bet, amount, game) {
   if(bet === game){
     spaceWin(amount);
@@ -217,6 +346,18 @@ function LoHBet(bet, amount, game) {
 	}
 }
 
+function ThirdsBet(bet, amount, game) {
+  if (bet === game) {
+    thirdsWin(amount);
+  }
+}
+
+function oddEvenBet(bet, amount, game) {
+  if(bet === game) {
+    evenOddWin(amount);
+  }
+}
+
 //BET ON COLUMNS
 function colBet(bet, amount, game) {
   if (bet === game) {
@@ -224,28 +365,40 @@ function colBet(bet, amount, game) {
   }
 }
 
-//RED OR BLACK WIN
-function RoBWin(amount) {
+function thirdsWin(amount) {
+   addMoney(amount*3);
+  MONEY += amount * 3;
+}
+//LOW OR HIGH WIN
+function LoHWin(amount) {
+   addMoney(amount*2);
 	MONEY += amount * 2;
 }
 
-//LOW OR HIGH WIN
-function LoHWin(amount) {
+function evenOddWin(amount) {
+   addMoney(amount*2);
+  MONEY += amount * 2;
+}
+//RED OR BLACK WIN
+function RoBWin(amount) {
+   addMoney(amount*2);
 	MONEY += amount * 2;
 }
 
 //GREEN WIN
 function GWin(amount) {
+   addMoney(amount*14);
 	MONEY += amount * 14;
 }
-
-//SPACE WIN
+//INDIVIDUAL SPACE WIN
 function spaceWin(amount) {
-  MONEY += amount * 36;
+   addMoney(amount*35);
+  MONEY += amount * 35;
 }
 
 //COLUMN WIN
 function colWin(amount) {
+   addMoney(amount*3);
   MONEY += amount * 3;
 }
 
@@ -269,4 +422,32 @@ function ButtonMax() {
 	var value = parseInt(document.getElementById('Money').value);
 	value = MONEY;
 	document.getElementById('Money').value = value;
+}
+
+
+
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("instructions");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
