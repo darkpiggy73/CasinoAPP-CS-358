@@ -1,6 +1,6 @@
 var MONEY = 500; //STARTING MONEY
 // jshint maxerr:200
-document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+document.getElementById('money').innerHTML = 'Balance TEST: ' + MONEY;
 var amtRed = 0,
 	amtGreen = 0,
 	amtBlack = 0;
@@ -51,9 +51,7 @@ function ButtonPlay() {
 	for (var i = 0; i < 36; i++) {
 		amtSpace[i] = 0;
 	}
-	//What is K?
-	//LoHBet('LOW', amtLowHigh[k], outcome[2]);
-	//LoHBet('HIGH', amtLowHigh[k], outcome[2]);
+
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
   document.getElementById('stats').innerHTML = 'Red:' + red + '<br> Green: ' + green + '<br>Black: ' + black;
 	document.getElementById('game').innerHTML = outcome[0] + ' ' + outcome[1];
@@ -61,8 +59,7 @@ function ButtonPlay() {
 
 //Red button bet
 function ButtonRed() {
-	var amount = parseInt(document.getElementById('Money').value);
-	//document.getElementById('Money');
+	var amount = parseInt(document.getElementById('Input').value);
 	if (amount > MONEY || amount < 0) {
 		amount = 0;
 	} else {
@@ -76,7 +73,7 @@ function ButtonRed() {
 
 //Green button bet
 function ButtonGreen() {
-	var amount = parseInt(document.getElementById('Money').value);
+	var amount = parseInt(document.getElementById('Input').value);
 	if (amount > MONEY || amount < 0) {
 		amount = 0;
 	}
@@ -89,7 +86,7 @@ function ButtonGreen() {
 
 //Black button bet
 function ButtonBlack() {
-	var amount = parseInt(document.getElementById('Money').value);
+	var amount = parseInt(document.getElementById('Input').value);
 	if (amount > MONEY || amount < 0) {
 		amount = 0;
 	}
@@ -101,7 +98,7 @@ function ButtonBlack() {
 }
 
 function BetOnSpace(i) {
-	var amount = parseInt(document.getElementById('Money').value);
+	var amount = parseInt(document.getElementById('Input').value);
 	if (amount > MONEY || amount < 0) {
 		amount = 0;
 	}
@@ -142,29 +139,29 @@ function spaceWin(amount) {
 }
 
 function ButtonAdd(num) {
-	var value = parseInt(document.getElementById('Money').value);
+	var value = parseInt(document.getElementById('Input').value);
 	value += num;
 	document.getElementById('Money').value = value;
 }
 function ButtonMulti(num) {
-	var value = parseInt(document.getElementById('Money').value);
+	var value = parseInt(document.getElementById('Input').value);
 	value *= num;
 	document.getElementById('Money').value = value;
 }
 
 function ButtonClear() {
-	var value = parseInt(document.getElementById('Money').value);
+	var value = parseInt(document.getElementById('Input').value);
 	document.getElementById('Money').value = 0;
 }
 
 function ButtonMax() {
-	var value = parseInt(document.getElementById('Money').value);
+	var value = parseInt(document.getElementById('Input').value);
 	value = MONEY;
 	document.getElementById('Money').value = value;
 }
 //Specific button bet
 function BetOnSpace(i) {
-	var amount = parseInt(document.getElementById('Money').value);
+	var amount = parseInt(document.getElementById('Input').value);
 	if (amount > MONEY || amount < 0) {
 		amount = 0;
 	}
@@ -177,7 +174,7 @@ function BetOnSpace(i) {
 
 //Low button bet
 function ButtonLow() {
-	var amount = parseInt(document.getElementById('Money').value);
+	var amount = parseInt(document.getElementById('Input').value);
 	if (amount > MONEY || amount < 0) {
 		amount = 0;
 	}
@@ -190,7 +187,7 @@ function ButtonLow() {
 
 //High button bet
 function ButtonHigh() {
-	var amount = parseInt(document.getElementById('Money').value);
+	var amount = parseInt(document.getElementById('Input').value);
 	if (amount > MONEY || amount < 0) {
 		amount = 0;
 	}
@@ -218,7 +215,7 @@ function history(color) {
 	if (hist.length > 8) {
 		hist.splice(0, 1);
 	}
-	document.getElementById('history').innerHTML = hist.join(' ');
+	document.getElementById('history').innerHTML = hist.join('<br>');
 }
 
 function timer() {
@@ -226,7 +223,7 @@ function timer() {
 	var downloadTimer = setInterval(function() {
 		timeleft -= 1;
 		document.getElementById('countdowntimer').textContent = timeleft;
-		if (timeleft <= 0) {
+		if (timeleft <= 0 || timeleft === 0) {
 			ButtonPlay();
 			clearInterval(downloadTimer);
 			setInterval(timer());
