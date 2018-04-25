@@ -1,5 +1,5 @@
-//in order to make this work without the server make var MONEY; into var MONEY = 10000;
-var MONEY;//
+//in order to make the html file work without the server make var MONEY; into var MONEY=10000;
+var MONEY;
 addMoney(0);
 var amtRed = 0,
 	amtGreen = 0,
@@ -26,10 +26,8 @@ for(var i = 0; i < 3; i++) {
 }
 
 
-//in order to make this work without the server comment out everything inside function addMoney
+//in order to make the html file work without the server comment out everthing in the addmoney function
   function addMoney(amount){
-    
-    
 $.ajax({
    method:'post',
    dataType: "json",
@@ -60,7 +58,7 @@ function PlayGame() {
 	}
 	if (rand === 0 || rand === 37) {
 	  outcome[0] = 'GREEN';
-	} else if (rand === 2 || rand === 4 || rand === 6 || rand === 8 || rand === 10 || rand === 11 || rand === 13 || rand === 15 || rand === 17 || rand === 20 || rand === 22 || rand === 24 || rand === 26 || rand === 28 || rand === 29 || rand === 31 || rand === 33 || rand === 36) {
+	} else if (rand === 2 || rand === 4 || rand === 6 || rand === 8 || rand === 10 || rand === 11 || rand === 13 || rand === 15 || rand === 17 || rand === 20 || rand === 22 || rand === 24 || rand === 26 || rand === 28 || rand === 29 || rand === 31 || rand === 33 || rand === 35) {
 	  
 	  outcome[0] = "BLACK";
 	  
@@ -146,6 +144,7 @@ function ButtonPlay() {
   if (outcome[1] === 37) {
     outcome[1] = "00";
   }
+  document.getElementById('chances').innerHTML = '';
 	document.getElementById('money').innerHTML =
 		'Balance: ' + MONEY + ' ' + outcome[0] + " " + outcome[1];
 }
@@ -162,6 +161,7 @@ function ButtonRed() {
 		MONEY -= amount;
 		console.log('Bet red ', amount);
 		document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+		document.getElementById('chances').innerHTML = 'BET RED: ' + amount + ', CHANCE OF WINNING ' + amount*2 + ': 49%';
 	}
 }
 
@@ -202,7 +202,8 @@ function BetOnSpace(i) {
   console.log('Bet Space ', i);
   document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
  }
- function ButtonEven() {
+//Betting on Evens
+function ButtonEven() {
    var amount = parseInt(document.getElementById('Money').value);
    if (amount > MONEY || amount < 0 ) {
      amount = 0;
@@ -213,6 +214,7 @@ function BetOnSpace(i) {
    console.log('Bet Even');
    document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
  }
+//Betting on Odds
 function ButtonOdd(){
   var amount = parseInt(document.getElementById('Money').value);
    if (amount > MONEY || amount < 0) {
@@ -422,4 +424,32 @@ function ButtonMax() {
 	var value = parseInt(document.getElementById('Money').value);
 	value = MONEY;
 	document.getElementById('Money').value = value;
+}
+
+
+
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("instructions");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
