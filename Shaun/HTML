@@ -52,7 +52,7 @@
         </button>
       </div>
       <div class="balance_area">
-          Balance: <div class="balance" rows="1" cols="15" id = "money"></div>
+          <div class="balance" rows="1" cols="15" id = "money"></div>
         </div>
       <div class="game_area">
         <div class="wheel"></div>
@@ -322,7 +322,7 @@
     
     <script>
     //Comment this out to make server work.
-    document.getElementById('money').innerHTML = 1000;
+    document.getElementById('money').innerHTML = "Balance: " + 1000;
 </script> 
     <script src="index.js"></script>
   </body>
