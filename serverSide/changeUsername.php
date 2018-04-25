@@ -7,10 +7,22 @@
         }
 
   $oUsername = $_POST['oUsername']; 
+  $sPassword=$_POST['password'];
   $nUsername = $_POST['nUsername'];   
 
- 
-        // 2. Run the Query
+$query = "SELECT username, password, money FROM logins WHERE username = '$oUsername';";
+        $stmt = simpleQuery($db, $query);
+  
+        if($stmt == NULL) {
+            include "account.html";
+        				  }
+ 		 else{
+      		$stmt->bind_result($username, $password, $money);
+    		$stmt->fetch();
+  			if(strcmp($sPassword,$password)==0){
+              
+              
+                      // 2. Run the Query
   //UPDATE logins SET money = '10' WHERE username = '$username';
         $query = "UPDATE logins SET username = '$nUsername' WHERE username = '$oUsername';";
         $stmt = simpleQuery($db, $query);
@@ -21,4 +33,13 @@
           include 'startpage.html';
           //die('{ "Message": "Inserted Data." }');
         }
+
+   			 }
+           else{
+             
+             
+             include "account.html";
+           }
+         }
+
 ?>
