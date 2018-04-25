@@ -1,0 +1,447 @@
+input[type=text], select {
+    border: 2px solid white;
+    border-radius: 4px;
+  	
+    color: white;
+  	background-color: transparent;
+}
+input[type=password], select {
+    border: 2px solid white;
+    border-radius: 4px;
+  	
+    color: white;
+  	background-color: transparent;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body
+{
+  height: 100%;
+}
+
+body
+{
+  background-color: #01130B;
+  background-image: url(roulette-wheel.jpg);
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: soft-light;
+  color: white;
+}
+.wrapper
+{
+  width:1200px;
+  margin: 0 auto 0 auto;
+}
+
+.heading
+{
+  height:75px;
+  padding: 20px;
+  text-align: center;
+  font-family: Casino;
+  font-size: 20pt;
+}
+
+.navigation
+{
+  height: 100px;
+  width: 1200px;
+}
+
+.log-in
+{
+  margin: 25px;
+  display: inline-table;
+  width: 130px;
+  height: 50px;
+  border: 3px solid white;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 12pt;
+  border-radius: 5px;
+  transition: background-color 500ms, color 500ms;
+}
+.log-in:hover
+{
+  background-color: rgba(255, 255, 255, 1);
+  color: #222;
+  cursor: pointer;
+  transition: background-color 500ms, color 500ms;
+}
+
+.register
+{
+  margin-right: 25px;
+  display: inline-table;
+  width: 130px;
+  height: 50px;
+  border: 3px solid white;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 12pt;
+  border-radius: 5px;
+  transition: background-color 500ms, color 500ms;
+}
+.register:hover
+{
+  background-color: rgba(255, 255, 255, 1);
+  color: #222;
+  cursor: pointer;
+  transition: background-color 500ms, color 500ms;
+}
+
+.instructions
+{
+  margin-right: 25px;
+  display: inline-table;
+  width: 130px;
+  height: 50px;
+  border: 3px solid white;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+ font-family: Helvetica;
+  font-weight: bold;
+  font-size: 12pt;
+  border-radius: 5px;
+  transition: background-color 500ms, color 500ms;
+}
+.instructions:hover
+{
+  background-color: rgba(255, 255, 255, 1);
+  color: #222;
+  cursor: pointer;
+  transition: background-color 500ms, color 500ms;
+}
+
+.log-out
+{
+  display: inline-table;
+  width: 130px;
+  height: 50px;
+  border: 3px solid white;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 12pt;
+  border-radius: 5px;
+  transition: background-color 500ms, color 500ms;
+}
+.log-out:hover
+{
+  background-color: rgba(255, 255, 255, 1);
+  color: #222;
+  cursor: pointer;
+  transition: background-color 500ms, color 500ms;
+}
+
+.game_area
+{
+  background-color: #007932;
+  min-height: 500px;
+  width: 950px;
+  float: left;
+  border: 4px solid black;
+  border-radius: 8px;
+}
+
+.wheel
+{
+  float: left;
+  min-height: 400px;
+  width: 400px;
+  content:url(New_wheel.png);
+}
+
+.bets
+{
+  float: right;
+  min-height: 600px;
+  width: 450px;
+}
+
+.zero
+{
+  display: inline-block;
+  width: 220px;
+  height: 50px;
+  border: 3px solid white;
+  background-color: #00D33B;
+  color: white;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 15pt;
+  border-radius: 5px;
+  transition: background-color 500ms, color 500ms;
+}
+
+.zero:hover
+{
+  background-color: #45DF70;
+  color: white;
+  cursor: pointer;
+  transition: background-color 500ms, color 500ms;
+}
+
+.reds
+{
+  display: inline-block;
+  width: 146px;
+  height: 30px;
+  border: 3px solid white;
+  background-color: #C21725;
+  color: white;
+  font-family: Helvetica;
+  font-size: 15pt;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 500ms, color 500ms;
+}
+
+.reds:hover
+{
+  background-color: #ED1C2D;
+  color: white;
+  cursor: pointer;
+  transition: background-color 500ms, color 500ms;
+}
+
+.blacks
+{
+  display: inline-block;
+  width: 146px;
+  height: 30px;
+  border: 3px solid white;
+  background-color: #2B2B2B;
+  color: white;
+  font-family: Helvetica;
+  font-size: 15pt;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 500ms, color 500ms;
+}
+
+.blacks:hover
+{
+  background-color: #3E3E3E;
+  color: white;
+  cursor: pointer;
+  transition: background-color 500ms, color 500ms;
+}
+
+.general
+{
+  display: inline-table;
+  width: 100px;
+  height: 50px;
+  border: 3px solid white;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 12pt;
+  border-radius: 5px;
+  transition: background-color 500ms, color 500ms;
+}
+
+.general:hover
+{
+  background-color: rgba(255, 255, 255, 1);
+  color: #222;
+  cursor: pointer;
+  transition: background-color 500ms, color 500ms;
+}
+
+.all_Red
+{
+  display: inline-table;
+  width: 100px;
+  height: 50px;
+  border: 3px solid white;
+  background-color: transparent;
+  color: #C21725;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 12pt;
+  border-radius: 5px;
+  transition: background-color 500ms, color 500ms;
+}
+
+.all_Red:hover
+{
+  background-color: #ED1C2D;
+  color: white;
+  cursor: pointer;
+  transition: background-color 500ms, color 500ms;
+}
+
+.all_Black
+{
+  display: inline-table;
+  width: 100px;
+  height: 50px;
+  border: 3px solid white;
+  background-color: transparent;
+  color: #2B2B2B;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 12pt;
+  border-radius: 5px;
+  transition: background-color 500ms, color 500ms;
+}
+
+.all_Black:hover
+{
+  background-color: #2B2B2B;
+  color: white;
+  cursor: pointer;
+  transition: background-color 500ms, color 500ms;
+}
+
+.play
+{
+  margin-top: 50px;
+  float: left;
+  min-height: 100px;
+  width: 400px;
+  font-family: Helvetica;
+  font-size: 20pt;
+  color: white;
+}
+
+.bet_amt
+{
+  font-family: Helvetica;
+  font-size: 20pt;
+  color: white;
+  background: transparent;
+  border: 3px solid black;
+  border-radius: 5px;
+}
+
+.balance_area
+{
+  font-family: Helvetica;
+  font-size: 20pt;
+  min-height: 25px;
+  width: 300px;
+}
+
+.balance
+{
+  resize: none;
+  background: transparent;
+  color: white;
+  font-family: Helvetica;
+  border: none;
+  overflow: hidden;
+  font-size: 15pt;
+}
+
+.sidebar
+{
+  width: 250px;
+  float: right;
+  min-height: 500px;
+  font-family: Helvetica;
+  font-size: 20pt;
+}
+
+.gamedata
+{
+  resize: none;
+  border: 2px black;
+  border-radius: 4px;
+  font-family: Helvetica;
+  color: white;
+  width: 250px;
+  background: transparent;
+  min-height: 500px;
+}
+.footer
+{
+  border: 2px double white;
+  border-radius: 4px;
+  clear: both;
+  background: black;
+  height: 40px;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+@font-face {
+font-family: "Casino";
+src: url("fonts/CASIQN__.TTF");
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #007932;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow:hidden;
+  background-color: #111;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding:14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #333;
+}
