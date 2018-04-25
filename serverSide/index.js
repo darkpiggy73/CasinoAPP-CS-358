@@ -1,4 +1,5 @@
-var MONEY;
+//in order to make this work without the server make var MONEY; into var MONEY = 10000;
+var MONEY;//
 addMoney(0);
 var amtRed = 0,
 	amtGreen = 0,
@@ -25,7 +26,10 @@ for(var i = 0; i < 3; i++) {
 }
 
 
+//in order to make this work without the server comment out everything inside function addMoney
   function addMoney(amount){
+    
+    
 $.ajax({
    method:'post',
    dataType: "json",

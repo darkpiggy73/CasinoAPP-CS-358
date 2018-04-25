@@ -8,6 +8,9 @@
   <body>
     
         <script>
+          
+          //in order to make the html file work without the server comment out everything in this script
+          
 $.ajax({
    method:'post',
    dataType: "json",
@@ -40,7 +43,7 @@ $.ajax({
         </button>
       </div>
       <div class="balance_area">
-          Balance: <div class="balance" rows="1" cols="15" id = "money"></div>
+          <div class="balance" rows="1" cols="15" id = "money"></div>
         </div>
       <div class="game_area">
         <div class="wheel"></div>
@@ -204,6 +207,11 @@ Previous Game Data
         Game by Nick, Jarett, Aaron, Shaun, & Kevin
       </div>
     </div>
+    <script>
+      //inorder to make this html page work uncomment this line of code
+      //document.getElementById('money').innerHTML = 'Balance: ' + 10000;
+    </script>
+    
     <script src="index.js"></script>
   </body>
 </html>
