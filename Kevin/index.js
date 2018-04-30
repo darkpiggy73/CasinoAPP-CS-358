@@ -56,7 +56,7 @@ function PlayGame() {
 	}
 	if (rand === 0 || rand === 37) {
 	  outcome[0] = 'GREEN';
-	} else if (rand === 2 || rand === 4 || rand === 6 || rand === 8 || rand === 10 || rand === 11 || rand === 13 || rand === 15 || rand === 17 || rand === 20 || rand === 22 || rand === 24 || rand === 26 || rand === 28 || rand === 29 || rand === 31 || rand === 33 || rand === 36) {
+	} else if (rand === 2 || rand === 4 || rand === 6 || rand === 8 || rand === 10 || rand === 11 || rand === 13 || rand === 15 || rand === 17 || rand === 20 || rand === 22 || rand === 24 || rand === 26 || rand === 28 || rand === 29 || rand === 31 || rand === 33 || rand === 35) {
 	  
 	  outcome[0] = "BLACK";
 	  
@@ -159,7 +159,7 @@ function ButtonRed() {
 		MONEY -= amount;
 		console.log('Bet red ', amount);
 		document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
-		document.getElementById('chances').innerHTML = 'BET RED: ' + amount + ', CHANCE OF WINNING ' + amount*2 + ': 49%';
+		document.getElementById('chances').innerHTML += 'BET RED: ' + amount + ', CHANCE OF WINNING: 46.37%, PAYOUT:' + amount*2 + '<br>';
 	}
 }
 
@@ -174,6 +174,7 @@ function ButtonGreen() {
 	MONEY -= amount;
 	console.log('Bet green ', amount);
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+	document.getElementById('chances').innerHTML += 'BET GREEN: ' + amount + ', CHANCE OF WINNING: 5.26%, PAYOUT:' + amount*18 + '<br>';
 }
 
 //Black button bet
@@ -187,6 +188,7 @@ function ButtonBlack() {
 	MONEY -= amount;
 	console.log('Bet black ', amount);
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+	document.getElementById('chances').innerHTML += 'BET BLACK: ' + amount + ', CHANCE OF WINNING: 46.37%, PAYOUT:' + amount*2 + '<br>';
 }
 //Betting on one of the spaces
 function BetOnSpace(i) {
@@ -199,6 +201,12 @@ function BetOnSpace(i) {
   MONEY -= amount;
   console.log('Bet Space ', i);
   document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+  if(i === 37) {
+	document.getElementById('chances').innerHTML += 'BET 00' + ': ' + amount + ', CHANCE OF WINNING: 2.63%, PAYOUT:' + amount*36 + '<br>';
+  }
+  else {
+	document.getElementById('chances').innerHTML += 'BET ' + i + ': ' + amount + ', CHANCE OF WINNING: 2.63%, PAYOUT:' + amount*36 + '<br>';
+  }
  }
 //Betting on Evens
 function ButtonEven() {
@@ -211,6 +219,8 @@ function ButtonEven() {
    MONEY -= amount;
    console.log('Bet Even');
    document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+	 document.getElementById('chances').innerHTML += 'BET EVEN: ' + amount + ', CHANCE OF WINNING: 46.37%, PAYOUT:' + amount*2 + '<br>';
+   
  }
 //Betting on Odds
 function ButtonOdd(){
@@ -223,6 +233,7 @@ function ButtonOdd(){
    MONEY -= amount;
    console.log('Bet Odd');
    document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+   document.getElementById('chances').innerHTML += 'BET ODD: ' + amount + ', CHANCE OF WINNING: 46.37%, PAYOUT:' + amount*2 + '<br>';
 }
 
 //Low button bet
@@ -236,6 +247,7 @@ function ButtonLow() {
 	MONEY -= amount;
 	console.log('Bet Low ', amount);
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+	document.getElementById('chances').innerHTML += 'BET 1 TO 18: ' + amount + ', CHANCE OF WINNING: 46.37%, PAYOUT:' + amount*2 + '<br>';
 }
 
 //High button bet
@@ -249,6 +261,7 @@ function ButtonHigh() {
 	MONEY -= amount;
 	console.log('Bet High ', amount);
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+	document.getElementById('chances').innerHTML += 'BET 19 TO 36: ' + amount + ', CHANCE OF WINNING: 46.37%, PAYOUT:' + amount*2 + '<br>';
 }
 
 function ButtonFirst() {
@@ -261,6 +274,7 @@ function ButtonFirst() {
 	MONEY -= amount;
 	console.log('Bet First ', amount);
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+	document.getElementById('chances').innerHTML += 'BET FIRST DOZEN: ' + amount + ', CHANCE OF WINNING: 31.58%, PAYOUT:' + amount*3 + '<br>';
 }
 function ButtonSecond() {
   var amount = parseInt(document.getElementById('Money').value);
@@ -272,6 +286,7 @@ function ButtonSecond() {
 	MONEY -= amount;
 	console.log('Bet Second ', amount);
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+	document.getElementById('chances').innerHTML += 'BET SECOND DOZEN: ' + amount + ', CHANCE OF WINNING: 31.58%, PAYOUT:' + amount*3 + '<br>';
 }
 function ButtonThird() {
   var amount = parseInt(document.getElementById('Money').value);
@@ -283,6 +298,7 @@ function ButtonThird() {
 	MONEY -= amount;
 	console.log('Bet Third ', amount);
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+	document.getElementById('chances').innerHTML += 'BET THIRD DOZEN: ' + amount + ', CHANCE OF WINNING: 31.58%, PAYOUT:' + amount*3 + '<br>';
 }
 
 function ButtonLeft() {
@@ -295,6 +311,7 @@ function ButtonLeft() {
 	MONEY -= amount;
 	console.log('Bet Left ', amount);
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+	document.getElementById('chances').innerHTML += 'BET LEFT COLUMN: ' + amount + ', CHANCE OF WINNING: 31.58%, PAYOUT:' + amount*3 + '<br>';
 }
 
 //Middle column bet
@@ -308,6 +325,7 @@ function ButtonMiddle() {
 	MONEY -= amount;
 	console.log('Bet Middle ', amount);
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+	document.getElementById('chances').innerHTML += 'BET MIDDLE COLUMN: ' + amount + ', CHANCE OF WINNING: 31.58%, PAYOUT:' + amount*3 + '<br>';
 }
 
 //Right column bet
@@ -321,6 +339,7 @@ function ButtonRight() {
 	MONEY -= amount;
 	console.log('Bet Right ', amount);
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
+	document.getElementById('chances').innerHTML += 'BET RIGHT COLUMN: ' + amount + ', CHANCE OF WINNING: 31.58%, PAYOUT:' + amount*3 + '<br>';
 }
   
 function Bet(bet, amount, game) {
