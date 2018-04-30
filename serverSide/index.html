@@ -47,145 +47,151 @@ $.ajax({
           <div class="balance" rows="1" cols="15" id = "money"></div>
         </div>
       <div class="game_area">
-        <div class="wheel"></div>
-        <div class="bets" style="text-align: center">
+     
+        
+        
+<canvas id="canvas" width="500" height="500"></canvas>
+       
+       
+          
+       <div class="bets" style="text-align: center">
           <p>
             <br>
-            <button class="zero" onclick="BetOnSpace(0)">
+            <button class="zero" onmouseover="hoverSpace(0)" onmouseout="unhoverSpace()" onclick="BetOnSpace(0)">
               0
             </button>
-            <button class="zero" onclick="BetOnSpace(37)">
+            <button class="zero" onmouseover="hoverSpace(37)" onmouseout="unhoverSpace()" onclick="BetOnSpace(37)">
               00
             </button>
           </p>
           <p>
-            <button class="reds" onclick="BetOnSpace(1)">
+            <button class="reds" onmouseover="hoverSpace(1)" onmouseout="unhoverSpace()" onclick="BetOnSpace(1)">
               1
             </button>
-            <button class="blacks" onclick="BetOnSpace(2)">
+            <button class="blacks" onmouseover="hoverSpace(2)" onmouseout="unhoverSpace()" onclick="BetOnSpace(2)">
               2
             </button>
-            <button class="reds" onclick="BetOnSpace(3)">
+            <button class="reds" onmouseover="hoverSpace(3)" onmouseout="unhoverSpace()" onclick="BetOnSpace(3)">
               3
             </button>
-            <button class="blacks" onclick="BetOnSpace(4)">
+            <button class="blacks" onmouseover="hoverSpace(4)" onmouseout="unhoverSpace()" onclick="BetOnSpace(4)">
               4
             </button>
-            <button class="reds" onclick="BetOnSpace(5)">
+            <button class="reds" onmouseover="hoverSpace(5)" onmouseout="unhoverSpace()" onclick="BetOnSpace(5)">
               5
             </button>
-            <button class="blacks" onclick="BetOnSpace(6)">
+            <button class="blacks" onmouseover="hoverSpace(6)" onmouseout="unhoverSpace()" onclick="BetOnSpace(6)">
               6
             </button>
-            <button class="reds" onclick="BetOnSpace(7)">
+            <button class="reds" onmouseover="hoverSpace(7)" onmouseout="unhoverSpace()" onclick="BetOnSpace(7)">
               7
             </button>
-            <button class="blacks" onclick="BetOnSpace(8)">
+            <button class="blacks" onmouseover="hoverSpace(8)" onmouseout="unhoverSpace()" onclick="BetOnSpace(8)">
               8
             </button>
-            <button class="reds" onclick="BetOnSpace(9)">
+            <button class="reds" onmouseover="hoverSpace(9)" onmouseout="unhoverSpace()" onclick="BetOnSpace(9)">
               9
             </button>
-            <button class="blacks" onclick="BetOnSpace(10)">
+            <button class="blacks" onmouseover="hoverSpace(10)" onmouseout="unhoverSpace()" onclick="BetOnSpace(10)">
               10
             </button>
-            <button class="blacks" onclick="BetOnSpace(11)">
+            <button class="blacks" onmouseover="hoverSpace(11)" onmouseout="unhoverSpace()" onclick="BetOnSpace(11)">
               11
             </button>
-            <button class="reds" onclick="BetOnSpace(12)">
+            <button class="reds" onmouseover="hoverSpace(12)" onmouseout="unhoverSpace()" onclick="BetOnSpace(12)">
               12
             </button>
-            <button class="blacks" onclick="BetOnSpace(13)">
+            <button class="blacks" onmouseover="hoverSpace(13)" onmouseout="unhoverSpace()" onclick="BetOnSpace(13)">
               13
             </button>
-            <button class="reds" onclick="BetOnSpace(14)">
+            <button class="reds" onmouseover="hoverSpace(14)" onmouseout="unhoverSpace()" onclick="BetOnSpace(14)">
               14
             </button>
-            <button class="blacks" onclick="BetOnSpace(15)">
+            <button class="blacks" onmouseover="hoverSpace(15)" onmouseout="unhoverSpace()" onclick="BetOnSpace(15)">
               15
             </button>
-            <button class="reds" onclick="BetOnSpace(16)">
+            <button class="reds" onmouseover="hoverSpace(16)" onmouseout="unhoverSpace()" onclick="BetOnSpace(16)">
               16
             </button>
-            <button class="blacks" onclick="BetOnSpace(17)">
+            <button class="blacks" onmouseover="hoverSpace(17)" onmouseout="unhoverSpace()" onclick="BetOnSpace(17)">
               17
             </button>
-            <button class="reds" onclick="BetOnSpace(18)">
+            <button class="reds" onmouseover="hoverSpace(18)" onmouseout="unhoverSpace()" onclick="BetOnSpace(18)">
               18
             </button>
-            <button class="reds" onclick="BetOnSpace(19)">
+            <button class="reds" onmouseover="hoverSpace(19)" onmouseout="unhoverSpace()" onclick="BetOnSpace(19)">
               19
             </button>
-            <button class="blacks" onclick="BetOnSpace(20)">
+            <button class="blacks" onmouseover="hoverSpace(20)" onmouseout="unhoverSpace()" onclick="BetOnSpace(20)">
               20
             </button>
-            <button class="reds" onclick="BetOnSpace(21)">
+            <button class="reds" onmouseover="hoverSpace(21)" onmouseout="unhoverSpace()" onclick="BetOnSpace(21)">
               21
             </button>
-            <button class="blacks" onclick="BetOnSpace(22)">
+            <button class="blacks" onmouseover="hoverSpace(22)" onmouseout="unhoverSpace()" onclick="BetOnSpace(22)">
               22
             </button>
-            <button class="reds" onclick="BetOnSpace(23)">
+            <button class="reds" onmouseover="hoverSpace(23)" onmouseout="unhoverSpace()" onclick="BetOnSpace(23)">
               23
             </button>
-            <button class="blacks" onclick="BetOnSpace(24)">
+            <button class="blacks" onmouseover="hoverSpace(24)" onmouseout="unhoverSpace()" onclick="BetOnSpace(24)">
               24
             </button>
-            <button class="reds" onclick="BetOnSpace(25)">
+            <button class="reds" onmouseover="hoverSpace(25)" onmouseout="unhoverSpace()" onclick="BetOnSpace(25)">
               25
             </button>
-            <button class="blacks" onclick="BetOnSpace(26)">
+            <button class="blacks" onmouseover="hoverSpace(26)" onmouseout="unhoverSpace()" onclick="BetOnSpace(26)">
               26
             </button>
-            <button class="reds" onclick="BetOnSpace(27)">
+            <button class="reds" onmouseover="hoverSpace(27)" onmouseout="unhoverSpace()" onclick="BetOnSpace(27)">
               27
             </button>
-            <button class="blacks" onclick="BetOnSpace(28)">
+            <button class="blacks" onmouseover="hoverSpace(28)" onmouseout="unhoverSpace()" onclick="BetOnSpace(28)">
               28
             </button>
-            <button class="blacks" onclick="BetOnSpace(29)">
+            <button class="blacks" onmouseover="hoverSpace(29)" onmouseout="unhoverSpace()" onclick="BetOnSpace(29)">
               29
             </button>
-            <button class="reds" onclick="BetOnSpace(30)">
+            <button class="reds" onmouseover="hoverSpace(30)" onmouseout="unhoverSpace()" onclick="BetOnSpace(30)">
               30
             </button>
-            <button class="blacks" onclick="BetOnSpace(31)">
+            <button class="blacks" onmouseover="hoverSpace(31)" onmouseout="unhoverSpace()" onclick="BetOnSpace(31)">
               31
             </button>
-            <button class="reds" onclick="BetOnSpace(32)">
+            <button class="reds" onmouseover="hoverSpace(32)" onmouseout="unhoverSpace()" onclick="BetOnSpace(32)">
               32
             </button>
-            <button class="blacks" onclick="BetOnSpace(33)">
+            <button class="blacks" onmouseover="hoverSpace(33)" onmouseout="unhoverSpace()" onclick="BetOnSpace(33)">
               33
             </button>
-            <button class="reds" onclick="BetOnSpace(34)">
+            <button class="reds" onmouseover="hoverSpace(34)" onmouseout="unhoverSpace()" onclick="BetOnSpace(34)">
               34
             </button>
-            <button class="blacks" onclick="BetOnSpace(35)">
+            <button class="blacks" onmouseover="hoverSpace(35)" onmouseout="unhoverSpace()" onclick="BetOnSpace(35)">
               35
             </button>
-            <button class="reds" onclick="BetOnSpace(36)">
+            <button class="reds" onmouseover="hoverSpace(36)" onmouseout="unhoverSpace()" onclick="BetOnSpace(36)">
               36
             </button>
           </p>
           <p>
             <br>
-            <button class="general" onclick="ButtonEven()">
+            <button class="general" onmouseover="hoverEven()" onmouseout="unhoverEven()" onclick="ButtonEven()">
               EVEN
             </button>
-            <button class="general" onclick="ButtonOdd()">
+            <button class="general" onmouseover="hoverOdd()" onmouseout="unhoverOdd()" onclick="ButtonOdd()">
               ODD
             </button>
-            <button class="all_Red" onclick="ButtonRed()">
+            <button class="all_Red" onmouseover="hoverRed()" onmouseout="unhoverRed()" onclick="ButtonRed()">
               RED
             </button>
-            <button class="all_Black" onclick="ButtonBlack()">
+            <button class="all_Black" onmouseover="hoverBlack()" onmouseout="unhoverBlack()" onclick="ButtonBlack()">
               BLACK
             </button>
-            <button class="general" onclick="ButtonLow()">
+            <button class="general" onmouseover="hoverLow()" onmouseout="unhoverLow()" onclick="ButtonLow()">
               1 TO 18
             </button>
-            <button class="general" onclick="ButtonHigh()">
+            <button class="general" onmouseover="hoverHigh()" onmouseout="unhoverHigh()" onclick="ButtonHigh()">
               19 TO 36
             </button>
           </p>
@@ -193,6 +199,11 @@ $.ajax({
         <div class="play" style="text-align: center">
           Bet Amount:<input type="number" id="Money" value="0.00" class="bet_amt" min ="0.00" max = "999999999.99"/>
           <br>
+          <button class ="general" onclick="ButtonClear()">Clear</button>
+          <button class ="general" onclick="ButtonAdd(1)">+1</button>
+          <button class ="general" onclick="ButtonAdd(10)">+10</button>
+          <button class ="general" onclick="ButtonMulti(.5)">1/2x</button>
+          <button class ="general" onclick="ButtonMax()">Max</button>
           <button class="general" onclick="ButtonPlay()">
             PLAY!
           </button>
@@ -200,9 +211,9 @@ $.ajax({
       </div>
       <div class="sidebar">
         Previous Bet History
-        <textarea class="gamedata" rows="8" cols="25" readonly>
-Previous Game Data
-        </textarea>
+    <p id = "history"></p>
+    <br>
+    <p id = "stats"> </p>
       </div>
       <div class="sidebar2">
         Win chances
@@ -312,7 +323,7 @@ Previous Game Data
 
 </div>
     
-     
+  
     <script src="index.js"></script>
   </body>
 </html>

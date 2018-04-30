@@ -20,7 +20,7 @@ if ( isset( $_POST['submit']) && (strlen( $_POST['usernameL'])!=0) && (strlen( $
         $stmt = simpleQuery($db, $query);
   
         if($stmt == NULL) {
-            include "startpage.html";
+            include "regFail.html";
         				  }
  		 else{
       		$stmt->bind_result($username, $password, $money);
@@ -29,11 +29,11 @@ if ( isset( $_POST['submit']) && (strlen( $_POST['usernameL'])!=0) && (strlen( $
   		    include "index.html";
    			 }
            else{
-             include "startpage.html";
+             include "regFail.html";
            }
          }
   }
   else {
-    include "startpage.html";
+    include "regFail.html";
   }
 ?>
