@@ -44,7 +44,6 @@ function PlayGame() {
     
   spin();
 	
-  
 var refreshIntervalId = setInterval(function(){
     if(intervalBool===1){
       PlayGame2();
@@ -53,31 +52,28 @@ var refreshIntervalId = setInterval(function(){
   
 }
 
+//Determines what spaces are winners and checks if the player bet on them
 function PlayGame2() {
-  
-  
-  
   var rand=spinValue;
   intervalBool=0;
   console.log(rand);
-	//var rand = 5;
-	var outcome = [];
+  //var rand = 5;
+  var outcome = [];
   if (rand === 0 || rand === 37) {
 	  outcome[0]='GREEN';
-    	green += 1;
-	} 
+	  green += 1;
+  } 
   else if (rand == 2 || rand == 4 || rand == 6 || rand == 8 || rand == 10 || rand == 11 || rand == 13 || rand == 15 || rand == 17 || rand == 20 || rand == 22 || rand == 24 || rand == 26 || rand == 28 || rand == 29 || rand == 31 || rand == 33 || rand == 35) 
   {
 	  outcome[0]='BLACK';
-    black += 1;
-	} 
+   	  black += 1;
+  } 
   else
   {
 	  outcome[0]='RED';
-    red += 1;
-}
-  
-	outcome.push(rand);
+    	  red += 1;
+  }
+  outcome.push(rand);
   
   if (rand < 19 && rand !== 0 && rand !== 37) {
 		outcome[2] = 'LOW';
@@ -90,9 +86,9 @@ function PlayGame2() {
 	if (rand !== 0 && rand !== 37 && rand % 2 === 0) {
 		outcome[3] = 'EVEN';
 	} else if (rand !== 0 && rand !== 37 && rand % 2 === 1) {
-	  outcome[3] = 'ODD';
+	  	outcome[3] = 'ODD';
 	} else {
-	  outcome[3] = "NONE";
+	  	outcome[3] = "NONE";
 	}
 	
 	console.log(outcome);
@@ -109,7 +105,7 @@ function PlayGame2() {
   	history(outcome);
   
 	for(var j = 0; j <= 37; j++) {
-	  spaceBet(j, amtSpace[j], outcome[1]);
+	  	spaceBet(j, amtSpace[j], outcome[1]);
 	}
 	
 	(amtRed = 0), (amtBlack = 0), (amtOdd = 0), (amtEven = 0);
@@ -150,6 +146,7 @@ function ButtonRed() {
 	}
 }
 
+//Shows the chances of winning and payout when hovering over this button
 function hoverRed()
 {
   	var amount = parseInt(document.getElementById('Money').value);
@@ -175,6 +172,7 @@ function ButtonBlack() {
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
 }
 
+//Shows the chances of winning and payout when hovering over this button
 function hoverBlack()
 {
   	var amount = parseInt(document.getElementById('Money').value);
@@ -182,7 +180,7 @@ function hoverBlack()
 	  'BET BLACK: ' + amount + ', CHANCE OF WINNING: 46.37%, PAYOUT:' + amount*2 + '<br>';
 }
 
-function unhoverRed()
+function unhoverBlack()
 {
     	document.getElementById('chances').innerHTML = "";
 }
@@ -200,15 +198,15 @@ function BetOnSpace(i) {
   document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
  }
  
- function hoverSpace(i)
-{
+ //Shows the chances of winning and payout when hovering over this button
+ function hoverSpace(i) {
   	var amount = parseInt(document.getElementById('Money').value);
 	if(i === 37) {
-	document.getElementById('chances').innerHTML = 'BET 00' + ': ' + amount + ', CHANCE OF WINNING: 2.63%, PAYOUT:' + amount*36 + '<br>';
-  }
-  else {
-	document.getElementById('chances').innerHTML = 'BET ' + i + ': ' + amount + ', CHANCE OF WINNING: 2.63%, PAYOUT:' + amount*36 + '<br>';
-  }
+		document.getElementById('chances').innerHTML = 'BET 00' + ': ' + amount + ', CHANCE OF WINNING: 2.63%, PAYOUT:' + amount*36 + '<br>';
+ 	}
+ 	else {
+		document.getElementById('chances').innerHTML = 'BET ' + i + ': ' + amount + ', CHANCE OF WINNING: 2.63%, PAYOUT:' + amount*36 + '<br>';
+ 	}
 }
 
 function unhoverSpace()
@@ -230,6 +228,7 @@ function ButtonEven() {
    
  }
  
+ //Shows the chances of winning and payout when hovering over this button
  function hoverEven()
 {
   	var amount = parseInt(document.getElementById('Money').value);
@@ -254,6 +253,8 @@ function ButtonOdd(){
    console.log('Bet Odd');
    document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
 }
+
+//Shows the chances of winning and payout when hovering over this button
 function hoverOdd()
 {
   	var amount = parseInt(document.getElementById('Money').value);
@@ -279,6 +280,7 @@ function ButtonLow() {
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
 }
 
+//Shows the chances of winning and payout when hovering over this button
 function hoverLow()
 {
   	var amount = parseInt(document.getElementById('Money').value);
@@ -304,6 +306,7 @@ function ButtonHigh() {
 	document.getElementById('money').innerHTML = 'Balance: ' + MONEY;
 }
 
+//Shows the chances of winning and payout when hovering over this button
 function hoverHigh()
 {
   	var amount = parseInt(document.getElementById('Money').value);
@@ -323,27 +326,28 @@ function Bet(bet, amount, game) {
 		}
 	}
 }
-//If you win by selecting a space
+//Checks if you won on a specific space
 function spaceBet(bet, amount, game) {
   if(bet === game){
     spaceWin(amount);
   }
 }
 
-//BET LOW OR HIGH
+//Checks if you won on low or high
 function LoHBet(bet, amount, game) {
 	if (bet === game) {
 		LoHWin(amount);
 	}
 }
 
+//Checks if you won on odds or evens
 function oddEvenBet(bet, amount, game) {
   if(bet === game) {
     evenOddWin(amount);
   }
 }
 
-//LOW OR HIGH WIN
+//Functions to update your money if you won
 function LoHWin(amount) {
    addMoney(amount*2);
 	MONEY += amount * 2;
@@ -365,6 +369,7 @@ function spaceWin(amount) {
   MONEY += amount * 35;
 }
 
+//buttons to change your bet amount
 function ButtonAdd(num) {
 	var value = parseInt(document.getElementById('Money').value);
 	value += num;
@@ -387,6 +392,7 @@ function ButtonMax() {
 	document.getElementById('Money').value = value;
 }
 
+//A history of previous outcomes of the roulette game
 var hist = [];
 function history(color) {
 	var temp = color[0] + ' ' + color[1];
