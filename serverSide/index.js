@@ -23,25 +23,21 @@ var intervalBool=0;
 var outcomeResult;
 
 //in order to make the html file work without the server comment out everthing in the addmoney function
-  function addMoney(amount){
-$.ajax({
-   method:'post',
-   dataType: "json",
-   url: 'changeMoney.php',
-  data: {username: localStorage.getItem('username'),
-        dataAmount: amount
-        },
-  success: function(data) {
-  MONEY=data;
+function addMoney(amount){
+	$.ajax({
+	   method:'post',
+	   dataType: "json",
+	   url: 'changeMoney.php',
+	  data: {username: localStorage.getItem('username'),
+	        dataAmount: amount
+	        },
+	  success: function(data) {
+	  MONEY=data;
+	  }
+	});
 }
-  
- });
-  }
 
 var spinValue = 0;
-
-
-
 
 //START GAME
 function PlayGame() {
